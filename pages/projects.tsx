@@ -1,7 +1,9 @@
 import Card from "../components/card/card";
+import { getCmsProjects } from "../lib/get-cms";
+import { IProject } from "../models/project.model";
 import styles from "../styles/Projects.module.css";
 
-export default function Projects({ projects }: { projects: any[] }) {
+export default function Projects({ projects }: { projects: IProject[] }) {
   return (
     <div className={styles.content}>
       <h1>Projects</h1>
@@ -10,10 +12,10 @@ export default function Projects({ projects }: { projects: any[] }) {
       <div className={styles.projects}>
         {projects.map((project) => (
           <Card
-            key={project}
-            title={project}
-            description="This is a description of the project."
-            link="#"
+            key={project.id}
+            title={project.title}
+            description={project.description}
+            link={`/project/${project.id}`}
             linkText="View Project"
           ></Card>
         ))}
@@ -25,7 +27,7 @@ export default function Projects({ projects }: { projects: any[] }) {
 export async function getStaticProps() {
   return {
     props: {
-      projects: ["Test", "Test 2", "Test 3", "Test 4"],
+      projects: (await getCmsProjects()).data,
     },
   };
 }

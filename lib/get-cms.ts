@@ -1,3 +1,4 @@
+import { IProject } from './../models/project.model';
 import { Social } from './../models/social.model';
 import { CmsResp } from '../models/cms-resp.model';
 import { Page } from '../models/page.model';
@@ -16,6 +17,14 @@ export async function getCmsPage(id: string): Promise<CmsResp<Page>> {
 }
 export async function getCmsSocials(): Promise<CmsResp<Social[]>> {
     return fetchOrThrow<CmsResp<Social[]>>(`${getCmsBaseUrl()}/items/Socials`);
+}
+export async function getCmsProjects(): Promise<CmsResp<IProject[]>> {
+    return fetchOrThrow<CmsResp<IProject[]>>(`${getCmsBaseUrl()}/items/Projects`);
+}
+
+export async function getCmsProject(id: string): Promise<CmsResp<IProject>> {
+    console.log("Getting project with id: " + id);
+    return fetchOrThrow<CmsResp<IProject>>(`${getCmsBaseUrl()}/items/Projects/${id}`);
 }
 
 function getCmsBaseUrl() {
