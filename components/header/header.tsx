@@ -1,7 +1,9 @@
-export default function Header({ siteName }: { siteName: string }) {
+import { getSiteName } from "../../lib/get-site-name";
+
+export default function Header() {
   return (
     <div className="pad-1">
-      <b>{siteName}</b>
+      <b>{getSiteName()}</b>
     </div>
   );
 }

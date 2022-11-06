@@ -1,0 +1,24 @@
+.card {
+    --card-bg: #f6f6f2;
+    --card-fg: #388087;
+    color: var(--card-fg);
+    background-color: var(--card-bg);
+    border: 2px solid var(--card-fg);
+    padding: 0px 25px 25px 25px;
+    border-radius: 10px;
+    min-width: 100px;
+}
+
+
+.card_title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.card_text {
+    flex: 1 1 auto;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
