@@ -7,7 +7,7 @@ async function fetchOrThrow<T>(url: string): Promise<T> {
     if (response.ok) {
         return response.json();
     } else {
-        throw new Error(`Request failed with status ${response.status}`);
+        throw new Error(`Request failed with status ${response.status}: ${await response.text()}`);
     }
 }
 
