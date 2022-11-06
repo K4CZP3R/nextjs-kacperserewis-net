@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.socials {
+    display: flex;
+    gap: 10px;
+}
+
+/* Smaller than 768px */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .blob {
+        position: absolute;
+        z-index: -1;
+    }
+}
