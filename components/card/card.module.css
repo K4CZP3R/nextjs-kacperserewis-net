@@ -6,7 +6,7 @@
     border: 2px solid var(--card-fg);
     padding: 0px 25px 25px 25px;
     border-radius: 10px;
-    min-width: 100px;
+    /* min-width: 100px; */
 }
 
 

@@ -1,13 +1,15 @@
 import { getCmsProject, getCmsProjects } from "../../lib/get-cms";
 import { IProject } from "../../models/project.model";
+import styles from "../../styles/Project.module.css";
 
-export default function Index({ project }: { project: IProject | undefined }) {
+export default function Index({ project }: { project: IProject | null }) {
   if (!project) {
     return <div>Project not found</div>;
   }
   return (
-    <div>
-      <h1>{JSON.stringify(project)}</h1>
+    <div className={styles.content}>
+      <h1>{project.title}</h1>
+      <p>{project.description}</p>
     </div>
   );
 }
@@ -32,7 +34,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }: { params: { id: string } }) {
   return {
     props: {
-      project: (await getCmsProject(params.id)).data,
+      project: await getCmsProject(params.id),
       id: params,
     },
   };

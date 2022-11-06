@@ -22,9 +22,8 @@ export async function getCmsProjects(): Promise<CmsResp<IProject[]>> {
     return fetchOrThrow<CmsResp<IProject[]>>(`${getCmsBaseUrl()}/items/Projects`);
 }
 
-export async function getCmsProject(id: string): Promise<CmsResp<IProject>> {
-    console.log("Getting project with id: " + id);
-    return fetchOrThrow<CmsResp<IProject>>(`${getCmsBaseUrl()}/items/Projects/${id}`);
+export async function getCmsProject(id: string): Promise<IProject | null> {
+    return fetchOrThrow<CmsResp<IProject>>(`${getCmsBaseUrl()}/items/Projects/${id}`).then((r) => r.data).catch(() => null);
 }
 
 function getCmsBaseUrl() {

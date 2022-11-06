@@ -4,4 +4,9 @@
     height: 100vh;
     justify-content: space-between;
     align-items: center;
+    padding: 10px;;
+}
+
+.children {
+    max-width: 768px;
 }

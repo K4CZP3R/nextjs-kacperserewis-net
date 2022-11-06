@@ -7,8 +7,11 @@
 
 .projects {
     display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
     justify-content: center;
-    margin: 5%;
+    gap: 25px;
+ 
+   max-width: 95vw;
+
 }
