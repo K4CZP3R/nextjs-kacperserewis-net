@@ -1,5 +1,5 @@
-import { getCmsProject, getCmsProjects } from "../../lib/get-cms";
 import { IProject } from "../../models/project.model";
+import { ProjectQlRepository } from "../../repo/project-ql.repository";
 import styles from "../../styles/Project.module.css";
 
 export default function Index({ project }: { project: IProject | null }) {
@@ -15,12 +15,12 @@ export default function Index({ project }: { project: IProject | null }) {
 }
 
 export async function getStaticPaths() {
-  const projects = (await getCmsProjects()).data;
+  const slugs = await new ProjectQlRepository().getSlugs();
 
-  let paths = projects.map((project) => {
+  let paths = slugs.map((slug) => {
     return {
       params: {
-        id: project.id,
+        slug: slug,
       },
     };
   });
@@ -31,11 +31,11 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }: { params: { id: string } }) {
+export async function getStaticProps({ params }: { params: { slug: string } }) {
+  const project = await new ProjectQlRepository().getBySlug(params.slug);
   return {
     props: {
-      project: await getCmsProject(params.id),
-      id: params,
+      project: project && project.length > 0 ? project[0] : null,
     },
   };
 }

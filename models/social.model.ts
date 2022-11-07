@@ -1,3 +1,11 @@
+export const SOCIAL_DATA_GRAPHQL_CONTENT = `
+id
+attributes {
+    name
+    username
+    url
+}
+`
 export interface ISocial {
     id: string;
     name: string;
@@ -5,16 +13,11 @@ export interface ISocial {
     url: string;
 }
 
-export class Social implements ISocial {
-    id: string;
-    name: string;
-    username: string;
-    url: string;
-
-    constructor(id: string, name: string, username: string, url: string) {
-        this.id = id;
-        this.name = name;
-        this.username = username;
-        this.url = url;
+export function toSocial(raw: any): ISocial {
+    return {
+        id: raw.id,
+        name: raw.attributes.name,
+        username: raw.attributes.username,
+        url: raw.attributes.url
     }
 }

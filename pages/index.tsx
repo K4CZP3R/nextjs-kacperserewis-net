@@ -3,9 +3,10 @@ import React, { Suspense } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import styles from "../styles/Index.module.css";
-import { getCmsPage, getCmsSocials } from "../lib/get-cms";
-import { IPage } from "../models/page.model";
+import { IndexPageQlRepository } from "../repo/index-page-ql.repository";
+import { IIndexPage } from "../models/index-page.model";
 import { ISocial } from "../models/social.model";
+import { SocialQlRepository } from "../repo/social-ql.repository";
 
 const ThreeDimensionBlob = dynamic(
   () => import("../components/three-dimension-blob/three-dimension-blob"),
@@ -15,10 +16,10 @@ const ThreeDimensionBlob = dynamic(
 );
 
 export default function Index({
-  cms,
+  indexPage,
   socials,
 }: {
-  cms: IPage;
+  indexPage: IIndexPage;
   socials: ISocial[];
 }) {
   const [blobProps, setBlobProps] = React.useState({
@@ -31,9 +32,9 @@ export default function Index({
   return (
     <div className={styles.content}>
       <div className={styles.textContent}>
-        <h1 className={styles.title}>{cms.mainText}</h1>
-        <h5 className={styles.description}>{cms.subText}</h5>
-        <p>{cms.botText}</p>
+        <h1 className={styles.title}>{indexPage.title}</h1>
+        <h5 className={styles.description}>{indexPage.subtitle}</h5>
+        <p>{indexPage.extraContent}</p>
 
         <div className={styles.socials}>
           {socials.map((social) => (
@@ -61,10 +62,13 @@ export default function Index({
 
 // @ts-ignore
 export async function getStaticProps() {
+  const indexPage = await new IndexPageQlRepository().get();
+  const socials = await new SocialQlRepository().getAll();
+
   return {
     props: {
-      cms: (await getCmsPage("landing-page")).data,
-      socials: (await getCmsSocials()).data,
+      indexPage: indexPage,
+      socials: socials,
     },
   };
 }

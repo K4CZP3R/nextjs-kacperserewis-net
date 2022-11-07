@@ -1,7 +1,7 @@
-import Card from "../components/card/card";
-import { getCmsProjects } from "../lib/get-cms";
-import { IProject } from "../models/project.model";
-import styles from "../styles/Projects.module.css";
+import Card from "../../components/card/card";
+import { IProject } from "../../models/project.model";
+import { ProjectQlRepository } from "../../repo/project-ql.repository";
+import styles from "../../styles/Projects.module.css";
 
 export default function Projects({ projects }: { projects: IProject[] }) {
   return (
@@ -15,7 +15,7 @@ export default function Projects({ projects }: { projects: IProject[] }) {
             key={project.id}
             title={project.title}
             description={project.description}
-            link={`/project/${project.id}`}
+            link={`/projects/${project.slug}`}
             linkText="View Project"
           ></Card>
         ))}
@@ -25,9 +25,11 @@ export default function Projects({ projects }: { projects: IProject[] }) {
 }
 
 export async function getStaticProps() {
+  const proj = new ProjectQlRepository();
+  const projects = await proj.getAll();
   return {
     props: {
-      projects: (await getCmsProjects()).data,
+      projects: projects,
     },
   };
 }
