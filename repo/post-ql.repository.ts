@@ -18,7 +18,6 @@ export class PostQlRepository extends BaseQlRepository<IPost> {
       }
     
       public async getSlugs(): Promise<string[]> {
-        throw new Error("Uga buga" + JSON.stringify(process.env))
         const {data} = await client.query({
           query: gql`
             query {

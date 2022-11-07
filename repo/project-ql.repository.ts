@@ -5,8 +5,6 @@ import { BaseQlRepository } from './base-ql.repository';
 
 export class ProjectQlRepository extends BaseQlRepository<IProject> {
   constructor() {
-    console.log("JAJAJAJAJ",JSON.stringify(process.env));
-  
     super(toProject, 'project', PROJECT_DATA_GRAPHQL_CONTENT)
   }
 

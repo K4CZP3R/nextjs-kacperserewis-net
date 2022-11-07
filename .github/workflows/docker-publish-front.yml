@@ -14,6 +14,8 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
   IMAGE_TYPE: frontend
+  CMS_GRAPHQL: ${{secrets.CMS_GRAPHQL}}
+  CMS_TOKEN: ${{secrets.CMS_TOKEN}}
 
 jobs:
    publish_image:
