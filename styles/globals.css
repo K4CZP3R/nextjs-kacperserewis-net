@@ -1,9 +1,25 @@
+:root {
+  --button-bg: #c2edce;
+  --button-fg: #388087;
+
+  --card-bg: #f6f6f2;
+  --card-fg: #388087;
+
+  --text-color: #388087;
+  --background-color: #f6f6f2;
+
+  --blob-color: var(--button-bg);
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  
+  color: var(--text-color);
+  background-color: var(--background-color);
 }
 
 a {
@@ -19,7 +35,7 @@ a {
   padding: 15px;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
@@ -27,4 +43,4 @@ a {
     color: white;
     background: black;
   }
-}
+} */

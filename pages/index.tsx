@@ -7,6 +7,7 @@ import { IndexPageQlRepository } from "../repo/index-page-ql.repository";
 import { IIndexPage } from "../models/index-page.model";
 import { ISocial } from "../models/social.model";
 import { SocialQlRepository } from "../repo/social-ql.repository";
+import Button from "../components/button/button";
 
 const ThreeDimensionBlob = dynamic(
   () => import("../components/three-dimension-blob/three-dimension-blob"),
@@ -23,10 +24,10 @@ export default function Index({
   socials: ISocial[];
 }) {
   const [blobProps, setBlobProps] = React.useState({
-    blobColor: 0x00ff00,
-    blobColorEmission: 0.75,
+    blobColor: 0xc2edce,
+    blobColorEmission: 0.5,
     blobSpeed: 0.001,
-    blobSpikeness: 1,
+    blobSpikeness: 1.25,
   });
 
   return (
@@ -38,20 +39,20 @@ export default function Index({
 
         <div className={styles.socials}>
           {socials.map((social) => (
-            <a href="#" key={social.id}>
+            <Button path="#" key={social.id}>
               {social.name}
-            </a>
+            </Button>
           ))}
 
-          <Link href={"/projects"}>Projects</Link>
-          <Link href={"/blog"}>Blog</Link>
+          <Button path="/projects">Projects</Button>
+          <Button path="/blog">Blog</Button>
         </div>
       </div>
       <div className={styles.blob}>
         <Suspense fallback={<div>Loading...</div>}>
           <ThreeDimensionBlob
             blobProps={blobProps}
-            lightColor={0xffff00}
+            lightColor={0xf6f6f2}
             lightColorEmission={0.25}
           ></ThreeDimensionBlob>
         </Suspense>
