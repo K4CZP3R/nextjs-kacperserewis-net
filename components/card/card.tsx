@@ -7,6 +7,7 @@ export type CardProps = JSX.IntrinsicElements["div"] & {
   description: string;
   link: string;
   linkText: string;
+  subTitle: string;
 };
 
 export default class Card extends React.Component<CardProps> {
@@ -15,8 +16,9 @@ export default class Card extends React.Component<CardProps> {
       <div className={styles.card}>
         <div className={styles.card_body}>
           <h5 className={styles.card_title}>{this.props.title}</h5>
+          <span className={styles.card_subtitle}>{this.props.subTitle}</span>
           <p className={styles.card_text}>{this.props.description}</p>
-          <Button path={this.props.link}>{this.props.linkText}</Button>
+          {this.props.children}
         </div>
       </div>
     );

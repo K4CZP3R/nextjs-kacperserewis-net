@@ -14,6 +14,7 @@ export default function Blog({ posts }: { posts: IPost[] }) {
             key={post.id}
             title={post.title}
             description={post.description}
+            subTitle=""
             link={`/blog/${post.slug}`}
             linkText="View Post"
           ></Card>

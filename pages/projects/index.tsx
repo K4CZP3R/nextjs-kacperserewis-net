@@ -1,3 +1,4 @@
+import Button from "../../components/button/button";
 import Card from "../../components/card/card";
 import { IProject } from "../../models/project.model";
 import { ProjectQlRepository } from "../../repo/project-ql.repository";
@@ -15,9 +16,21 @@ export default function Projects({ projects }: { projects: IProject[] }) {
             key={project.id}
             title={project.title}
             description={project.description}
+            subTitle={project.tags.map((t) => t.value).join(" ")}
             link={`/projects/${project.slug}`}
             linkText="View Project"
-          ></Card>
+          >
+            <div className={styles.buttons}>
+              {/* <Button path={`/projects/${project.slug}`}>More info</Button> */}
+              {project.buttons.map((button) => {
+                return (
+                  <Button key={button.path} path={button.path}>
+                    {button.title}
+                  </Button>
+                );
+              })}
+            </div>
+          </Card>
         ))}
       </div>
     </div>
