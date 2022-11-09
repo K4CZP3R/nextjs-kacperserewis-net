@@ -1,16 +1,14 @@
 import Card from "../../components/card/card";
 import { IPost } from "../../models/post.model";
-import { IProject } from "../../models/project.model";
 import { PostQlRepository } from "../../repo/post-ql.repository";
-import { ProjectQlRepository } from "../../repo/project-ql.repository";
-import styles from "../../styles/Projects.module.css";
+import styles from "../../styles/Blog.module.css";
 
 export default function Blog({ posts }: { posts: IPost[] }) {
   return (
     <div className={styles.content}>
       <h1>Blog</h1>
 
-      <div className={styles.projects}>
+      <div className={styles.blog}>
         {posts.map((post) => (
           <Card
             key={post.id}
@@ -26,8 +24,8 @@ export default function Blog({ posts }: { posts: IPost[] }) {
 }
 
 export async function getStaticProps() {
-  const proj = new PostQlRepository();
-  const posts = await proj.getAll();
+  const repo = new PostQlRepository();
+  const posts = await repo.getAll();
   return {
     props: {
       posts: posts,
