@@ -17,6 +17,13 @@
 }
 
 
+/* add padding between buttons */
+.buttons > * {
+    margin: 0 0.5rem;
+}
+
+
+
 
   @keyframes appearSlideUp {
     0% {
