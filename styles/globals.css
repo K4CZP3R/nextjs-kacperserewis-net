@@ -18,6 +18,19 @@
   }
 } 
 
+/* Markdown text wrapper */
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  /* Dark mode */
+  @media (prefers-color-scheme: dark) {
+    color: var(--text-color);
+    background-color: var(--background-color);
+  }
+
+}
 
 html,
 body {
