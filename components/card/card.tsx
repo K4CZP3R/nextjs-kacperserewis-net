@@ -16,16 +16,10 @@ export default class Card extends React.Component<CardProps> {
       <div className={styles.card}>
         <div className={styles.card_body}>
           <h5 className={styles.card_title}>{this.props.title}</h5>
-          {!this.props.subTitle ?? (
-            <>
-              <span className={styles.card_subtitle}>
-                {this.props.subTitle}
-              </span>
-              <br />
-            </>
-          )}
-
-          <span>{(this.props.hashTags ?? []).join(" ")}</span>
+          <div className={styles.card_sub}>
+            <span>{this.props.subTitle}</span>
+            <span>{this.props.hashTags?.join(" ")}</span>
+          </div>
           <p className={styles.card_text}>{this.props.description}</p>
           {this.props.children}
         </div>
