@@ -9,6 +9,16 @@
   --blob-color: var(--button-bg);
 }
 
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #f8f9fa;
+    --background-color: #212529;
+    --button-bg: #343a40;
+  }
+} 
+
+
 html,
 body {
   padding: 0;
@@ -33,13 +43,3 @@ a {
 .pad-1 {
   padding: 15px;
 }
-
-/* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
-} */
