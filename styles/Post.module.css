@@ -17,3 +17,8 @@
             opacity: 1;
         }
   }
+
+
+  .pre {
+    overflow-x: auto;
+  }
