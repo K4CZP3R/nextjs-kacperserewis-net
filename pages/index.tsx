@@ -1,6 +1,5 @@
 import React, { Suspense } from "react";
 
-import Link from "next/link";
 import dynamic from "next/dynamic";
 import styles from "../styles/Index.module.css";
 import { IndexPageQlRepository } from "../repo/index-page-ql.repository";
@@ -24,7 +23,7 @@ export default function Index({
   socials: ISocial[];
 }) {
   const [blobProps, setBlobProps] = React.useState({
-    blobColor: 0xc2edce,
+    blobColor: 0xadb5bd,
     blobColorEmission: 0.5,
     blobSpeed: 0.001,
     blobSpikeness: 1.25,

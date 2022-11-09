@@ -1,13 +1,11 @@
 :root {
-  --button-bg: #c2edce;
-  --button-fg: #388087;
-
-  --card-bg: #f6f6f2;
-  --card-fg: #388087;
-
-  --text-color: #388087;
-  --background-color: #f6f6f2;
-
+  --text-color: #212529;
+  --background-color: #f8f9fa;
+  --button-bg: #adb5bd;
+  
+  --card-fg: var(--text-color);
+  --button-fg: var(--text-color);
+  --card-bg: var(--background-color);
   --blob-color: var(--button-bg);
 }
 

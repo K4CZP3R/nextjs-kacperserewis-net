@@ -1,6 +1,4 @@
 .card {
-    --card-bg: #f6f6f2;
-    --card-fg: #388087;
     color: var(--card-fg);
     background-color: var(--card-bg);
     border: 2px solid var(--card-fg);
