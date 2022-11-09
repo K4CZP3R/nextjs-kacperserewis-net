@@ -16,12 +16,9 @@ export default function Projects({ projects }: { projects: IProject[] }) {
             key={project.id}
             title={project.title}
             description={project.description}
-            subTitle={project.tags.map((t) => t.value).join(" ")}
-            link={`/projects/${project.slug}`}
-            linkText="View Project"
+            hashTags={project.tags.map((t) => t.value)}
           >
             <div className={styles.buttons}>
-              {/* <Button path={`/projects/${project.slug}`}>More info</Button> */}
               {project.buttons.map((button) => {
                 return (
                   <Button key={button.path} path={button.path}>
