@@ -1,12 +1,13 @@
 import { IPost } from "../../models/post.model";
 import { PostQlRepository } from "../../repo/post-ql.repository";
+import styles from "../../styles/Post.module.css";
 
 export default function Index({ post }: { post: IPost | null }) {
   if (!post) {
     return <div>Post not found</div>;
   }
   return (
-    <div>
+    <div className={styles.content}>
       <h1>{post.title}</h1>
     </div>
   );
