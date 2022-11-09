@@ -16,6 +16,7 @@
 .socials {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 /* Smaller than 768px */
