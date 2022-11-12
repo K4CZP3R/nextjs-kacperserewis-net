@@ -1,0 +1,45 @@
+greenish:
+	dark: #2f3e46,#52796f,#cad2c5
+	light: #cad2c5,#84a98c,#2f3e46
+
+blueish:
+	dark: #0077b6,#0096c7,#caf0f8
+	light: #caf0f8,#48cae4,#0077b6
+
+greenish2:
+	dark: #344e41,#588157,#dad7cd
+	light: #dad7cd,#a3b18a,#344e41
+
+ubuntuachtig:
+	dark: #252422,#eb5e28,#fffcf2
+	light: #fffcf2,#eb5e28,#252422
+
+makeup:
+	dark: #774936,#b07d62,#edc4b3
+	light: #e6b8a2,#cd9777,#774936
+
+redyellow:
+	dark: #006ba6,#d81159,#ffbc42
+
+neons:
+	#ffd6a5,#fdffb6,#595959
+
+grayish:
+	dark: #595959,#7f7f7f,#f2f2f2
+	light: #f2f2f2,#cccccc,#595959
+
+poep:
+	dark: #181818,#a69557,#fbf7eb
+	light: #fbf7eb,#a69557,#181818
+huemints
+#46303a,#b58d5b,#fbffff
+#232424,#e95e2f,#d9e2d4
+#001416,#4ac6de,#2e72ec
+#b9e0d7,#e96e6b,#1d2b3c
+#f0f1f7,#f42851,#1d1a2f
+#060300,#ca7d8d,#fac625
+#292727,#f73259,#fdfefe
+#282136,#6eb387,#eaebfe
+#f9c627,#e54a2a,#0a3932
+#272a2c,#f46404,#ebedeb
+#f5edaf,#d27478,#103537
