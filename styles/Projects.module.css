@@ -16,12 +16,19 @@
    max-width: 95vw;
 }
 
-
-/* add padding between buttons */
-.buttons > * {
-    margin: 0 0.5rem;
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
 }
 
+@media screen and (min-width: 768px) {
+    .buttons {
+        flex-direction: row;
+    }
+}
+    
 
 
 
