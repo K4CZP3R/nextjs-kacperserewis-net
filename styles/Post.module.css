@@ -22,3 +22,7 @@
   .pre {
     overflow-x: auto;
   }
+
+  .code {
+    word-break: break-all;
+  }

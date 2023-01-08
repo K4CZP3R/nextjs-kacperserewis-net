@@ -12,6 +12,7 @@ import Seo from "../../../components/seo/seo";
 
 const components = {
   pre: (props: any) => <pre className={styles.pre} {...props} />,
+  code: (props: any) => <code className={styles.code} {...props} />,
 };
 
 export default function Index({
