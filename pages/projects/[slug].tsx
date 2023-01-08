@@ -1,3 +1,4 @@
+import Seo from "../../components/seo/seo";
 import { IProject } from "../../models/project.model";
 import { ProjectRepository } from "../../repo/project.repository";
 import styles from "../../styles/Project.module.css";
@@ -8,6 +9,7 @@ export default function Index({ project }: { project: IProject | null }) {
   }
   return (
     <div className={styles.content}>
+      <Seo title={project.title} description={project.description}></Seo>
       <h1>{project.title}</h1>
       <p>{project.description}</p>
     </div>

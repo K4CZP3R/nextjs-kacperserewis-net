@@ -8,6 +8,9 @@ import styles from "../../styles/Post.module.css";
 import rehypeHighlight from "rehype-highlight";
 
 import "highlight.js/styles/atom-one-dark.css";
+import Head from "next/head";
+import { getSiteName } from "../../lib/get-site-name";
+import Seo from "../../components/seo/seo";
 
 const components = {
   pre: (props: any) => <pre className={styles.pre} {...props} />,
@@ -26,6 +29,7 @@ export default function Index({
 
   return (
     <div className={styles.content}>
+      <Seo title={post.title} description={post.description}></Seo>
       <h1>{post.title}</h1>
       <div className="wrapper">
         <MDXRemote {...markdown} components={components} />

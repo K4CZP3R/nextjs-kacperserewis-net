@@ -1,6 +1,6 @@
-import { useState } from "react";
 import Button from "../../components/button/button";
 import Card from "../../components/card/card";
+import Seo from "../../components/seo/seo";
 import { IPost } from "../../models/post.model";
 import { PostRepository } from "../../repo/post.repository";
 import styles from "../../styles/Blog.module.css";
@@ -8,6 +8,7 @@ import styles from "../../styles/Blog.module.css";
 export default function Blog({ posts }: { posts: IPost[] }) {
   return (
     <div className={styles.content}>
+      <Seo title="Blog" description="Here are some of my posts."></Seo>
       <h1>Blog</h1>
       <p>Here are some of my posts.</p>
 

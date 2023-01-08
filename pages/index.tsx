@@ -7,6 +7,9 @@ import Button from "../components/button/button";
 import { PageRepository } from "../repo/page.repository";
 import { SocialRepository } from "../repo/social.repository";
 import { IPage } from "../models/page.model";
+import Head from "next/head";
+import { getSiteName } from "../lib/get-site-name";
+import Seo from "../components/seo/seo";
 
 const ThreeDimensionBlob = dynamic(
   () => import("../components/three-dimension-blob/three-dimension-blob"),
@@ -31,6 +34,7 @@ export default function Index({
 
   return (
     <div className={styles.content}>
+      <Seo title="Index" description={indexPage.extraContent}></Seo>
       <div className={styles.textContent}>
         <h1 className={styles.title}>{indexPage.title}</h1>
         <h5 className={styles.description}>{indexPage.subtitle}</h5>
