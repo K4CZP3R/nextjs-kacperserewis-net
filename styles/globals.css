@@ -1,7 +1,9 @@
 :root {
-  --text-color: #212529;
-  --background-color: #f8f9fa;
-  --button-bg: #adb5bd;
+  --text-color: #232424;
+  --background-color: #d9e2d4;
+  --button-bg: #e95e2f;
+  
+
   
   --card-fg: var(--text-color);
   --button-fg: var(--text-color);
@@ -12,12 +14,19 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text-color: #f8f9fa;
-    --background-color: #212529;
-    --button-bg: #343a40;
+    --text-color: #d9e2d4;
+    --background-color: #232424;
+    --button-bg: #e95e2f;
   }
 } 
 
+/* Markdown text wrapper */
+.wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+}
 
 html,
 body {

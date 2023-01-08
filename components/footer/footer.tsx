@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <div className="pad-1">
-      <b>Footer</b>
+      <b>Kacper Serewis 2023</b>
     </div>
   );
 }

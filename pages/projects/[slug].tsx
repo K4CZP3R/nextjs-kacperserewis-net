@@ -1,5 +1,6 @@
+import Seo from "../../components/seo/seo";
 import { IProject } from "../../models/project.model";
-import { ProjectQlRepository } from "../../repo/project-ql.repository";
+import { ProjectRepository } from "../../repo/project.repository";
 import styles from "../../styles/Project.module.css";
 
 export default function Index({ project }: { project: IProject | null }) {
@@ -8,6 +9,7 @@ export default function Index({ project }: { project: IProject | null }) {
   }
   return (
     <div className={styles.content}>
+      <Seo title={project.title} description={project.description}></Seo>
       <h1>{project.title}</h1>
       <p>{project.description}</p>
     </div>
@@ -15,7 +17,8 @@ export default function Index({ project }: { project: IProject | null }) {
 }
 
 export async function getStaticPaths() {
-  const slugs = await new ProjectQlRepository().getSlugs();
+  const projects = await new ProjectRepository().getAll();
+  const slugs = projects.map((project) => project.slug);
 
   let paths = slugs.map((slug) => {
     return {
@@ -32,10 +35,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: { params: { slug: string } }) {
-  const project = await new ProjectQlRepository().getBySlug(params.slug);
+  const project = await new ProjectRepository().get(params.slug);
+  console.log("project is", project);
   return {
     props: {
-      project: project && project.length > 0 ? project[0] : null,
+      project: project || null,
     },
   };
 }
