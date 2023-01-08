@@ -3,11 +3,15 @@
 .cta {
     position: relative;
     margin: auto;
-    padding: 12px 18px;
+    padding: 5px 10px;
     transition: all 0.2s ease;
     border: none;
     background: none;
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
    }
+
+
+
    .cta:before {
     content: "";
     position: absolute;
@@ -16,8 +20,8 @@
     display: block;
     border-radius: 50px;
     background: var(--button-bg);
-    width: 45px;
-    height: 45px;
+    width: 30px;
+    height: 30px;
     transition: all 0.3s ease;
    }
    .cta span {
@@ -50,3 +54,13 @@
     transform: scale(0.95);
    }
        
+
+   @media screen and (min-width: 768px) {
+    .cta {
+        padding: 8px 16px;
+    }
+    .cta:before {
+        width: 35px;
+        height: 35px;
+    }
+}
