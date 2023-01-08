@@ -1,7 +1,7 @@
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { IPost } from "../../models/post.model";
-import { PostQlRepository } from "../../repo/post-ql.repository";
+import { PostRepository } from "../../repo/post.repository";
 import styles from "../../styles/Post.module.css";
 
 /* Import rehype-highlight */
@@ -35,7 +35,9 @@ export default function Index({
 }
 
 export async function getStaticPaths() {
-  const slugs = await new PostQlRepository().getSlugs();
+  const posts = await new PostRepository().getAll();
+
+  const slugs = posts.map((post) => post.slug);
 
   let paths = slugs.map((slug) => {
     return {
@@ -52,9 +54,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: { params: { slug: string } }) {
-  const postRaw = await new PostQlRepository().getBySlug(params.slug);
-
-  let post = postRaw && postRaw.length > 0 ? postRaw[0] : null;
+  const post = await new PostRepository().get(params.slug);
 
   let markdown = post
     ? await serialize(post.content, {

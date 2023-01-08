@@ -1,7 +1,7 @@
 import Button from "../../components/button/button";
 import Card from "../../components/card/card";
 import { IProject } from "../../models/project.model";
-import { ProjectQlRepository } from "../../repo/project-ql.repository";
+import { ProjectRepository } from "../../repo/project.repository";
 import styles from "../../styles/Projects.module.css";
 
 export default function Projects({ projects }: { projects: IProject[] }) {
@@ -13,10 +13,10 @@ export default function Projects({ projects }: { projects: IProject[] }) {
       <div className={styles.projects}>
         {projects.map((project) => (
           <Card
-            key={project.id}
+            key={project.slug}
             title={project.title}
             description={project.description}
-            hashTags={project.tags.map((t) => t.value)}
+            hashTags={project.tags}
           >
             <div className={styles.buttons}>
               {project.buttons.map((button) => {
@@ -35,8 +35,7 @@ export default function Projects({ projects }: { projects: IProject[] }) {
 }
 
 export async function getStaticProps() {
-  const proj = new ProjectQlRepository();
-  const projects = await proj.getAll();
+  const projects = await new ProjectRepository().getAll();
   return {
     props: {
       projects: projects,

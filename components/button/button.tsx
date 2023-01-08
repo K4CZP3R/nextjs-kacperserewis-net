@@ -4,13 +4,18 @@ import styles from "./button.module.css";
 export type ButtonProps = JSX.IntrinsicElements["div"] & {
   children: React.ReactNode;
   path: string;
+  newTab?: boolean;
 };
 
 export default class Button extends React.Component<ButtonProps> {
   render() {
     // On button click, navigate to the path
     const onClick = () => {
-      window.location.href = this.props.path;
+      if (this.props.newTab) {
+        window.open(this.props.path, "_blank");
+      } else {
+        window.location.href = this.props.path;
+      }
     };
 
     return (

@@ -1,8 +1,8 @@
+import { useState } from "react";
 import Button from "../../components/button/button";
 import Card from "../../components/card/card";
 import { IPost } from "../../models/post.model";
-import { PostQlRepository } from "../../repo/post-ql.repository";
-import { ProjectQlRepository } from "../../repo/project-ql.repository";
+import { PostRepository } from "../../repo/post.repository";
 import styles from "../../styles/Blog.module.css";
 
 export default function Blog({ posts }: { posts: IPost[] }) {
@@ -12,27 +12,26 @@ export default function Blog({ posts }: { posts: IPost[] }) {
       <p>Here are some of my posts.</p>
 
       <div className={styles.blog}>
-        {posts.map((post) => (
-          <Card
-            key={post.id}
-            title={post.title}
-            description={post.description}
-            hashTags={post.tags.map((t) => t.value)}
-            subTitle={
-              "Created at: " + new Date(post.createdAt).toLocaleDateString()
-            }
-          >
-            <Button path={`/blog/${post.slug}`}>Read</Button>
-          </Card>
-        ))}
+        {posts.map((post) => {
+          return (
+            <Card
+              key={post.slug}
+              title={post.title}
+              description={post.description}
+              hashTags={post.tags}
+              dateRaw={post.createdAt}
+            >
+              <Button path={`/blog/${post.slug}`}>Read</Button>
+            </Card>
+          );
+        })}
       </div>
     </div>
   );
 }
 
 export async function getStaticProps() {
-  const repo = new PostQlRepository();
-  const posts = await repo.getAll();
+  const posts = await new PostRepository().getAll();
   return {
     props: {
       posts: posts,

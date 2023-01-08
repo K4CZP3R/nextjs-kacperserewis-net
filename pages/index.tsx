@@ -2,11 +2,11 @@ import React, { Suspense } from "react";
 
 import dynamic from "next/dynamic";
 import styles from "../styles/Index.module.css";
-import { IndexPageQlRepository } from "../repo/index-page-ql.repository";
-import { IIndexPage } from "../models/index-page.model";
 import { ISocial } from "../models/social.model";
-import { SocialQlRepository } from "../repo/social-ql.repository";
 import Button from "../components/button/button";
+import { PageRepository } from "../repo/page.repository";
+import { SocialRepository } from "../repo/social.repository";
+import { IPage } from "../models/page.model";
 
 const ThreeDimensionBlob = dynamic(
   () => import("../components/three-dimension-blob/three-dimension-blob"),
@@ -19,11 +19,11 @@ export default function Index({
   indexPage,
   socials,
 }: {
-  indexPage: IIndexPage;
+  indexPage: IPage;
   socials: ISocial[];
 }) {
   const [blobProps, setBlobProps] = React.useState({
-    blobColor: 0xadb5bd,
+    blobColor: 0xe95e2f,
     blobColorEmission: 0.5,
     blobSpeed: 0.001,
     blobSpikeness: 1.25,
@@ -38,7 +38,7 @@ export default function Index({
 
         <div className={styles.socials}>
           {socials.map((social) => (
-            <Button path="#" key={social.id}>
+            <Button newTab={true} path={social.url} key={social.id}>
               {social.name}
             </Button>
           ))}
@@ -62,8 +62,8 @@ export default function Index({
 
 // @ts-ignore
 export async function getStaticProps() {
-  const indexPage = await new IndexPageQlRepository().get();
-  const socials = await new SocialQlRepository().getAll();
+  const indexPage = await new PageRepository().get("index");
+  const socials = await new SocialRepository().getAll();
 
   return {
     props: {
