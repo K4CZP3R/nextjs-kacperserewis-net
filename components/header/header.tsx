@@ -8,8 +8,8 @@ export default function Header() {
   };
   return (
     <div className={styles.container}>
-      <Button path="/">{getSiteName()}</Button>
-      <CssVarChanger></CssVarChanger>
+      <Button path="/">{getSiteName("")}</Button>
+      {/* <CssVarChanger></CssVarChanger> */}
     </div>
   );
 }
