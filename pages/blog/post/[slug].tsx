@@ -1,16 +1,14 @@
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import { IPost } from "../../models/post.model";
-import { PostRepository } from "../../repo/post.repository";
-import styles from "../../styles/Post.module.css";
+import { IPost } from "../../../models/post.model";
+import { PostRepository } from "../../../repo/post.repository";
+import styles from "../../../styles/Post.module.css";
 
 /* Import rehype-highlight */
 import rehypeHighlight from "rehype-highlight";
 
 import "highlight.js/styles/atom-one-dark.css";
-import Head from "next/head";
-import { getSiteName } from "../../lib/get-site-name";
-import Seo from "../../components/seo/seo";
+import Seo from "../../../components/seo/seo";
 
 const components = {
   pre: (props: any) => <pre className={styles.pre} {...props} />,
