@@ -29,7 +29,7 @@ export default function Index({
   return (
     <div className={styles.content}>
       <Seo title={post.title} description={post.description}></Seo>
-      <h1>{post.title}</h1>
+      <h1 className={styles.header}>{post.title}</h1>
       <div className="wrapper">
         <MDXRemote {...markdown} components={components} />
       </div>
