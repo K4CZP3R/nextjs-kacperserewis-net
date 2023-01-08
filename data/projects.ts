@@ -73,7 +73,7 @@ export const PROJECTS: IProject[] = [
         },
         {
             title: "Writeup",
-            path: "/blog/reverse-engineering-tp-link-tapo"
+            path: "/blog/post/reverse-engineering-tp-link-tapo"
         }
     ],
         tags: ["Python", "Reverse Engineering", "Smart Plug", "TP-Link", "Tapo"],

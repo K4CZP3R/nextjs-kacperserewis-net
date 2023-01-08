@@ -22,7 +22,7 @@ export default function Blog({ posts }: { posts: IPost[] }) {
               hashTags={post.tags}
               dateRaw={post.createdAt}
             >
-              <Button path={`/blog/${post.slug}`}>Read</Button>
+              <Button path={`/blog/post/${post.slug}`}>Read</Button>
             </Card>
           );
         })}
