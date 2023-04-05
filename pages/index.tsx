@@ -7,8 +7,6 @@ import Button from "../components/button/button";
 import { PageRepository } from "../repo/page.repository";
 import { SocialRepository } from "../repo/social.repository";
 import { IPage } from "../models/page.model";
-import Head from "next/head";
-import { getSiteName } from "../lib/get-site-name";
 import Seo from "../components/seo/seo";
 
 const ThreeDimensionBlob = dynamic(

@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import { StringKeyframeTrack } from "three";
-import Button from "../button/button";
+import React from "react";
 import styles from "./card.module.css";
 
 export type CardProps = JSX.IntrinsicElements["div"] & {
@@ -22,10 +20,14 @@ export default class Card extends React.Component<CardProps, CardState> {
       date: "",
     };
   }
-  render() {
+
+  componentDidMount(): void {
     this.setState({
       date: new Date(this.props.dateRaw ?? "0").toLocaleDateString(),
     });
+  }
+
+  render() {
     return (
       <div className={styles.card}>
         <div className={styles.card_body}>

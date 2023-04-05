@@ -1,22 +1,33 @@
+@import url('https://fonts.cdnfonts.com/css/dm-sans');
+
 :root {
-  --text-color: #232424;
-  --background-color: #d9e2d4;
-  --button-bg: #e95e2f;
+  --text-color: rgb(35, 36, 36);
+  --background-color: rgb(217 226 212/0.1);
+
   
 
   
   --card-fg: var(--text-color);
   --button-fg: var(--text-color);
-  --card-bg: var(--background-color);
-  --blob-color: var(--button-bg);
+}
+
+.button-hover {
+  --button-bg-opacity: 0.2;
+  background-color: rgb(233 94 47/var(--button-bg-opacity));
+}
+.button-hover:hover {
+  --button-bg-opacity: 0.7;
 }
 
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text-color: #d9e2d4;
-    --background-color: #232424;
-    --button-bg: #e95e2f;
+    --text-color: rgb(217 226 212/0.9);
+    --background-color: rgb(35 36 36/0.9);
+  }
+
+  .button-hover {
+    background-color: rgb(233 94 47/var(--button-bg-opacity));
   }
 } 
 
@@ -32,8 +43,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: DM Sans,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
   color: var(--text-color);
 }
 body {
