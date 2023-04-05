@@ -2,7 +2,7 @@
 
 :root {
   --text-color: rgb(35, 36, 36);
-  --background-color: rgb(217 226 212/0.3);
+  --background-color: rgb(217 226 212/0.1);
 
   
 
@@ -22,7 +22,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text-color: rgb(217 226 212);
+    --text-color: rgb(217 226 212/0.9);
     --background-color: rgb(35 36 36/0.9);
   }
 
