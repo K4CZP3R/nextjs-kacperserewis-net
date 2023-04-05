@@ -2,14 +2,13 @@
 
 :root {
   --text-color: rgb(35, 36, 36);
-  --background-color: rgb(217 226 212/0.2);
+  --background-color: rgb(217 226 212/0.3);
 
   
 
   
   --card-fg: var(--text-color);
   --button-fg: var(--text-color);
-  --card-bg: var(--background-color);
 }
 
 .button-hover {
@@ -23,8 +22,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text-color: rgb(217, 226, 212);
-    --background-color: rgb(35, 36, 36);
+    --text-color: rgb(217 226 212);
+    --background-color: rgb(35 36 36/0.9);
   }
 
   .button-hover {
