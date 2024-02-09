@@ -1,23 +1,32 @@
-import Button from "../../components/button/button";
-import Card from "../../components/card/card";
-import { getSiteName } from "../../lib/get-site-name";
-import { ProjectRepository } from "../../repo/project.repository";
-import styles from "../../styles/Projects.module.css";
+import { setStaticParamsLocale } from "next-international/server";
+import Button from "../../../components/button/button";
+import Card from "../../../components/card/card";
+import { getSiteName } from "../../../lib/get-site-name";
+import { getCurrentLocale, getI18n } from "../../../locales/server";
+import { ProjectRepository } from "../../../repo/project.repository";
+import styles from "../../../styles/Projects.module.css";
 
 export async function generateMetadata() {
+  const t = await getI18n();
   return {
-    title: getSiteName("Projects"),
-    description: "Here are some of my projects.",
+    title: getSiteName(t("projects")),
+    description: t("projectsPageDescription"),
   };
 }
 
-export default async function Projects() {
+export default async function Projects({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  setStaticParamsLocale(locale);
+  const t = await getI18n();
   const projects = await new ProjectRepository().getAll();
 
   return (
     <div className={styles.content}>
-      <h1>Projects</h1>
-      <p>Here are some of my projects.</p>
+      <h1>{t("projects")}</h1>
+      <p>{t("projectsPageDescription")}</p>
 
       <div className={styles.projects}>
         {projects.map((project) => (

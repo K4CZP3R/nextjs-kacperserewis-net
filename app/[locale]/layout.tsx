@@ -1,12 +1,12 @@
-import Layout from "../components/layout/layout";
-import "../styles/globals.css";
+import { getStaticParams } from "@/locales/server";
+import Layout from "../../components/layout/layout";
+import "../../styles/globals.css";
 
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Next.js + TypeScript Example",
-  description: "This is an example of using Next.js with TypeScript",
-};
+export function generateStaticParams() {
+  return getStaticParams();
+}
 
 export default function RootLayout({
   children,
