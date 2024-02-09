@@ -2,7 +2,15 @@ import { readFileSync } from "fs";
 import { IPost } from "../models/post.model";
 
 const reverseEngineeringTpLinkTapoContent = readFileSync(
-  "./data/reverse-engineering-tp-link-tapo-content.md",
+  "./data/reverse-engineering-tp-link-tapo-content.md"
+).toString();
+
+const reverseEngineeringTpLinkTapoContentNl = readFileSync(
+  "./data/reverse-engineering-tp-link-tapo-content-nl.md"
+).toString();
+
+const reverseEngineeringTpLinkTapoContentPl = readFileSync(
+  "./data/reverse-engineering-tp-link-tapo-content-pl.md"
 ).toString();
 
 const NL_POSTS: IPost[] = [
@@ -10,7 +18,7 @@ const NL_POSTS: IPost[] = [
     title: "Reverse Engineering TP-Link TAPO",
     description:
       "Ik heb een smart plug, TP-Link Tapo, gereverse-engineerd. Dit is mijn writeup waarin ik mijn werk beschrijf.",
-    content: reverseEngineeringTpLinkTapoContent,
+    content: reverseEngineeringTpLinkTapoContentNl,
     tags: ["#Python", "#Smart Home", "#IoT", "#TP-Link", "#Tapo", "#Java"],
     images: null,
     slug: "reverse-engineering-tp-link-tapo",
@@ -24,7 +32,7 @@ const PL_POSTS: IPost[] = [
     title: "Reverse Engineering TP-Link TAPO",
     description:
       "Zreversowałem smart plug, TP-Link Tapo. Oto moje opracowanie opisujące moją pracę.",
-    content: reverseEngineeringTpLinkTapoContent,
+    content: reverseEngineeringTpLinkTapoContentPl,
     tags: ["#Python", "#Smart Home", "#IoT", "#TP-Link", "#Tapo", "#Java"],
     images: null,
     slug: "reverse-engineering-tp-link-tapo",
