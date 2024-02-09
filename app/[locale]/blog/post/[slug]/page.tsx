@@ -1,19 +1,21 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
-import styles from "../../../../styles/Post.module.css";
+import styles from "../../../../../styles/Post.module.css";
 
 /* Import rehype-highlight */
 import rehypeHighlight from "rehype-highlight";
 
 import "highlight.js/styles/atom-one-dark.css";
-import { getSiteName } from "../../../../lib/get-site-name";
-import { PostRepository } from "../../../../repo/post.repository";
+import { getSiteName } from "../../../../../lib/get-site-name";
+import { PostRepository } from "../../../../../repo/post.repository";
+import { Locale } from "../../../../../locales/consts";
+import { setStaticParamsLocale } from "next-international/server";
 
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: { slug: string; locale: Locale };
 }) {
-  const post = await new PostRepository().get(params.slug);
+  const post = await new PostRepository().get(params.slug, params.locale);
   return {
     title: getSiteName(post?.title || "Post"),
     description: post?.description,
@@ -26,15 +28,31 @@ const components = {
 };
 
 export async function generateStaticParams() {
-  const posts = await new PostRepository().getAll();
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  const locales: Locale[] = ["en", "nl", "pl"];
+
+  const allPaths = [];
+  for (const locale of locales) {
+    const posts = await new PostRepository().getAll(locale);
+    const paths = posts.map((post) => ({
+      slug: post.slug,
+      locale,
+    }));
+
+    allPaths.push(...paths);
+  }
+
+  return allPaths;
 }
 
-export default async function Index({ params }: { params: { slug: string } }) {
+export default async function Index({
+  params,
+}: {
+  params: { slug: string; locale: Locale };
+}) {
+  setStaticParamsLocale(params.locale);
+
   const { slug } = params;
-  const post = await new PostRepository().get(slug);
+  const post = await new PostRepository().get(slug, params.locale);
 
   if (!post) {
     return <div>Post not found</div>;
