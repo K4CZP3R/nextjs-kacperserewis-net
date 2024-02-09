@@ -1,16 +1,21 @@
-import Head from "next/head";
 import Button from "../../components/button/button";
 import Card from "../../components/card/card";
-import Seo from "../../components/seo/seo";
 import { getSiteName } from "../../lib/get-site-name";
-import { IProject } from "../../models/project.model";
 import { ProjectRepository } from "../../repo/project.repository";
 import styles from "../../styles/Projects.module.css";
 
-export default function Projects({ projects }: { projects: IProject[] }) {
+export async function generateMetadata() {
+  return {
+    title: getSiteName("Projects"),
+    description: "Here are some of my projects.",
+  };
+}
+
+export default async function Projects() {
+  const projects = await new ProjectRepository().getAll();
+
   return (
     <div className={styles.content}>
-      <Seo title="Projects" description="Here are some of my projects."></Seo>
       <h1>Projects</h1>
       <p>Here are some of my projects.</p>
 
@@ -36,13 +41,4 @@ export default function Projects({ projects }: { projects: IProject[] }) {
       </div>
     </div>
   );
-}
-
-export async function getStaticProps() {
-  const projects = await new ProjectRepository().getAll();
-  return {
-    props: {
-      projects: projects,
-    },
-  };
 }
