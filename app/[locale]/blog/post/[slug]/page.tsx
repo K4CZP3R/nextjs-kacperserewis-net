@@ -9,6 +9,7 @@ import { getSiteName } from "../../../../../lib/get-site-name";
 import { PostRepository } from "../../../../../repo/post.repository";
 import { Locale } from "../../../../../locales/consts";
 import { setStaticParamsLocale } from "next-international/server";
+import { H1, H2, H3, H4, InlineCode, P } from "@/components/text";
 
 export async function generateMetadata({
   params,
@@ -23,8 +24,15 @@ export async function generateMetadata({
 }
 
 const components = {
-  pre: (props: any) => <pre className={styles.pre} {...props} />,
-  code: (props: any) => <code className={styles.code} {...props} />,
+  pre: (props: any) => (
+    <pre className="bg-muted rounded overflow-x-auto" {...props} />
+  ),
+  code: (props: any) => <InlineCode {...props} />,
+  h1: (props: any) => <H1 {...props} />,
+  h2: (props: any) => <H2 {...props} />,
+  h3: (props: any) => <H3 {...props} />,
+  h4: (props: any) => <H4 {...props} />,
+  p: (props: any) => <P {...props} />,
 };
 
 export async function generateStaticParams() {
@@ -60,8 +68,8 @@ export default async function Index({
 
   return (
     <div className={styles.content}>
-      <h1 className={styles.header}>{post.title}</h1>
-      <div className="wrapper">
+      <H1>{post.title}</H1>
+      <div className="wrapper" style={{ paddingTop: "2rem" }}>
         {/* @ts-ignore */}
         <MDXRemote
           key={"aa"}

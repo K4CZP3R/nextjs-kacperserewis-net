@@ -1,4 +1,3 @@
-import Button from "../../../components/button/button";
 import Card from "../../../components/card/card";
 import { getSiteName } from "../../../lib/get-site-name";
 import { getI18n, getStaticParams } from "../../../locales/server";
@@ -6,6 +5,10 @@ import { PostRepository } from "../../../repo/post.repository";
 import styles from "../../../styles/Blog.module.css";
 import { Locale } from "../../../locales/consts";
 import { setStaticParamsLocale } from "next-international/server";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { H1, P } from "@/components/text";
+import { cn } from "@/lib/utils";
 
 export async function generateMetadata({
   params,
@@ -29,11 +32,11 @@ export default async function Blog({
   const t = await getI18n();
   const posts = await new PostRepository().getAll(locale);
   return (
-    <div className={styles.content}>
-      <h1>{t("blogPage")}</h1>
-      <p>{t("blogPageDescription")}</p>
+    <div className={cn(styles.content, "pt-4")}>
+      <H1>{t("blogPage")}</H1>
+      <P>{t("blogPageDescription")}</P>
 
-      <div className={styles.blog}>
+      <div className={cn(styles.blog, "pt-4")}>
         {posts.map((post) => {
           return (
             <Card
@@ -43,7 +46,9 @@ export default async function Blog({
               hashTags={post.tags}
               dateRaw={post.createdAt}
             >
-              <Button path={`/blog/post/${post.slug}`}>Read</Button>
+              <Button variant={"outline"} asChild>
+                <Link href={`/blog/post/${post.slug}`}>Read</Link>
+              </Button>
             </Card>
           );
         })}
