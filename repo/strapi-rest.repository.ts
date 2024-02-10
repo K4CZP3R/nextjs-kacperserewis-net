@@ -30,7 +30,9 @@ export class StrapiRestRepository<T> implements IRepository<T> {
       },
     );
     const json = (await res.json()) as MultiResponse<T>;
-    return json.data.length > 0 ? json.data[0].attributes : null;
+    return json.data.length > 0
+      ? { ...json.data[0].attributes, id: json.data[0].id }
+      : null;
   }
 
   async getAll(locale: Locale): Promise<T[]> {
@@ -41,6 +43,8 @@ export class StrapiRestRepository<T> implements IRepository<T> {
     });
     const json = (await res.json()) as MultiResponse<T>;
     console.log(json);
-    return json.data.map((d) => d.attributes);
+    return json.data.map((d) => {
+      return { ...d.attributes, id: d.id };
+    });
   }
 }

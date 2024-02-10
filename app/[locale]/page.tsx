@@ -44,7 +44,7 @@ export default async function Index({
   const socials = await new SocialRepository().getAll();
 
   const blobProps = {
-    blobColor: 0xe95e2f,
+    blobColor: 0xf97316,
     blobColorEmission: 0.5,
     blobSpeed: 0.001,
     blobSpikeness: 1.25,

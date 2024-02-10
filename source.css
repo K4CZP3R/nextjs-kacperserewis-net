@@ -5,9 +5,9 @@
 /* rgb(233 94 47) */
 /* rgb(35, 36, 36) to hsl(220, 4.1%, 14.3%) */
 /* 
---background: 99 19% 86%;
---foreground: 180 1.4% 13.9%;
---primary: 15 80.9% 54.9%; */
+--background: hsl(99 19% 86%);
+--foreground: hsl(180 1.4% 13.9%);
+--primary: hsl(15 80.9% 54.9%); */
 
 @layer base {
    :root {
