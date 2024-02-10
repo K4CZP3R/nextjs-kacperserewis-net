@@ -1,8 +1,7 @@
 import { getStaticParams } from "@/locales/server";
-import Layout from "../../components/layout/layout";
-import "../../styles/globals.css";
+import Layout from "@/components/layout";
+import "@/styles/globals.css";
 import { cookies } from "next/headers";
-import ThemeToggle from "@/components/theme-toggle";
 
 export function generateStaticParams() {
   return getStaticParams();
