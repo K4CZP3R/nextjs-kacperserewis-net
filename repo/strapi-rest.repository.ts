@@ -42,7 +42,6 @@ export class StrapiRestRepository<T> implements IRepository<T> {
       },
     });
     const json = (await res.json()) as MultiResponse<T>;
-    console.log(json);
     return json.data.map((d) => {
       return { ...d.attributes, id: d.id };
     });
