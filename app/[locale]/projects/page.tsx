@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { H1, P } from "@/components/text";
 import { cn } from "@/lib/utils";
+import { Badges } from "@/components/badges";
 
 export async function generateMetadata() {
   const t = await getI18n();
@@ -42,7 +43,10 @@ export default async function Projects({
         {projects.map((project) => (
           <Card key={project.slug}>
             <CardHeader>
-              <CardTitle>{project.title}</CardTitle>
+              <CardTitle className="flex flex-col  gap-2">
+                {project.title}
+                <Badges badges={project.badges ?? []} key={project.slug} />
+              </CardTitle>
               <CardDescription>{project.description}</CardDescription>
             </CardHeader>
             <CardFooter className="flex justify-between">
