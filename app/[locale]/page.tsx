@@ -16,7 +16,7 @@ const ThreeDimensionBlob = dynamic(
   () => import("../../components/three-dimension-blob/three-dimension-blob"),
   {
     suspense: true,
-  }
+  },
 );
 
 export async function generateMetadata({
@@ -83,7 +83,7 @@ export default async function Index({
           <ThreeDimensionBlob
             blobProps={blobProps}
             lightColor={0xf6f6f2}
-            lightColorEmission={0.25}
+            lightColorEmission={0.15}
           ></ThreeDimensionBlob>
         </Suspense>
       </div>
