@@ -45,6 +45,7 @@ export default async function Projects({
             <CardHeader>
               <CardTitle className="flex flex-col  gap-2">
                 {project.title}
+                {/* @ts-expect-error Async Server Component */}
                 <Badges badges={project.badges ?? []} key={project.slug} />
               </CardTitle>
               <CardDescription>{project.description}</CardDescription>

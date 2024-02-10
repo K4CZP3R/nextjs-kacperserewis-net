@@ -21,8 +21,8 @@ export async function Badges(props: { badges: BadgeConfig[] }) {
   const uniqueRequests = requests.filter(
     (req, index) =>
       requests.findIndex(
-        (r) => getBadgeConfigKey(r) === getBadgeConfigKey(req),
-      ) === index,
+        (r) => getBadgeConfigKey(r) === getBadgeConfigKey(req)
+      ) === index
   );
 
   const responses = (
@@ -33,10 +33,11 @@ export async function Badges(props: { badges: BadgeConfig[] }) {
     .filter((b) => b.source === "wakapi")
     .map((badge, i) => {
       const foundResponse = responses.find(
-        (r) => r!.key === getBadgeConfigKey(badge),
+        (r) => r!.key === getBadgeConfigKey(badge)
       );
       if (foundResponse) {
         return (
+          /* @ts-expect-error Async Server Component */
           <Badge
             key={"wakapi" + i.toString()}
             config={badge}
