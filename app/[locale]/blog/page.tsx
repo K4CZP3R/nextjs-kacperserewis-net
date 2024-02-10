@@ -1,20 +1,22 @@
-import Card from "../../../components/card/card";
-import { getSiteName } from "../../../lib/get-site-name";
-import { getI18n, getStaticParams } from "../../../locales/server";
-import { PostRepository } from "../../../repo/post.repository";
-import styles from "../../../styles/Blog.module.css";
-import { Locale } from "../../../locales/consts";
+import { getSiteName } from "@/lib/get-site-name";
+import { getI18n } from "@/locales/server";
+import { PostRepository } from "@/repo/post.repository";
+import styles from "@/styles/Blog.module.css";
+import { Locale } from "@/locales/consts";
 import { setStaticParamsLocale } from "next-international/server";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { H1, P } from "@/components/text";
 import { cn } from "@/lib/utils";
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { locale: Locale };
-}) {
+export async function generateMetadata() {
   const t = await getI18n();
 
   return {
@@ -39,16 +41,17 @@ export default async function Blog({
       <div className={cn(styles.blog, "pt-4")}>
         {posts.map((post) => {
           return (
-            <Card
-              key={post.slug}
-              title={post.title}
-              description={post.description}
-              hashTags={post.tags}
-              dateRaw={post.createdAt}
-            >
-              <Button variant={"outline"} asChild>
-                <Link href={`/blog/post/${post.slug}`}>Read</Link>
-              </Button>
+            <Card key={post.slug}>
+              <CardHeader>
+                <CardTitle>{post.title}</CardTitle>
+                <CardDescription>{post.description}</CardDescription>
+              </CardHeader>
+              <CardFooter className="flex justify-between">
+                {" "}
+                <Button variant={"outline"} asChild>
+                  <Link href={`/blog/post/${post.slug}`}>Read</Link>
+                </Button>
+              </CardFooter>
             </Card>
           );
         })}

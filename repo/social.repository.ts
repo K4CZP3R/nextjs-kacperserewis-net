@@ -1,12 +1,18 @@
-import { SOCIALS } from "../data/socials";
 import { IRepository } from "../interfaces/repository.iface";
 import { ISocial } from "../models/social.model";
+import { StrapiRestRepository } from "./strapi-rest.repository";
 
-export class SocialRepository implements IRepository<ISocial> {
-    get(id: string): Promise<ISocial | null> {
-        return Promise.resolve(SOCIALS.find((social) => social.id === id) || null)
-    }
-    getAll(): Promise<ISocial[]> {
-        return Promise.resolve(SOCIALS);
-    }
+export class SocialRepository
+  extends StrapiRestRepository<ISocial>
+  implements IRepository<ISocial>
+{
+  constructor() {
+    super("socials");
+  }
+  get(id: string): Promise<ISocial | null> {
+    return super.get(id, "en");
+  }
+  getAll(): Promise<ISocial[]> {
+    return super.getAll("en");
+  }
 }
