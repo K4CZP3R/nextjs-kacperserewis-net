@@ -16,7 +16,7 @@ const ThreeDimensionBlob = dynamic(
   () => import("../../components/three-dimension-blob/three-dimension-blob"),
   {
     suspense: true,
-  },
+  }
 );
 
 export async function generateMetadata({
