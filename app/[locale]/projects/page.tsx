@@ -50,7 +50,7 @@ export default async function Projects({
               </CardTitle>
               <CardDescription>{project.description}</CardDescription>
             </CardHeader>
-            <CardFooter className="flex justify-between">
+            <CardFooter className="flex flex-wrap gap-1">
               {project.buttons.map((button) => {
                 return (
                   <Button variant={"secondary"} key={button.path} asChild>
