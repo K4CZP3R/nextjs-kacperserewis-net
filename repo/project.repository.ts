@@ -1,19 +1,20 @@
 import { Locale } from "@/locales/consts";
-import { PROJECTS } from "../data/projects";
 import { IRepository } from "../interfaces/repository.iface";
 import { IProject } from "../models/project.model";
+import { StrapiRestRepository } from "./strapi-rest.repository";
 
-export class ProjectRepository implements IRepository<IProject> {
+export class ProjectRepository
+  extends StrapiRestRepository<IProject>
+  implements IRepository<IProject>
+{
+  constructor() {
+    super("projects");
+  }
+
   get(id: string, locale: Locale): Promise<IProject | null> {
-    return Promise.resolve(
-      PROJECTS.find(
-        (project) => project.slug === id && project.locale === locale
-      ) || null
-    );
+    return super.get(id, locale);
   }
   getAll(locale: Locale): Promise<IProject[]> {
-    return Promise.resolve(
-      PROJECTS.filter((project) => project.locale === locale)
-    );
+    return super.getAll(locale);
   }
 }
