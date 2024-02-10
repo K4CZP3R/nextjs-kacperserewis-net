@@ -2,13 +2,15 @@ import React, { Suspense } from "react";
 
 import dynamic from "next/dynamic";
 import styles from "../../styles/Index.module.css";
-import Button from "../../components/button/button";
+import { Button } from "../../components/ui/button";
 import { PageRepository } from "../../repo/page.repository";
 import { SocialRepository } from "../../repo/social.repository";
 import { getSiteName } from "../../lib/get-site-name";
 import { getCurrentLocale, getI18n } from "../../locales/server";
 import { Locale } from "../../locales/consts";
 import { setStaticParamsLocale } from "next-international/server";
+import Link from "next/link";
+import { H1, H2, H3, H4, P } from "@/components/text";
 
 const ThreeDimensionBlob = dynamic(
   () => import("../../components/three-dimension-blob/three-dimension-blob"),
@@ -55,19 +57,25 @@ export default async function Index({
   return (
     <div className={styles.content}>
       <div className={styles.textContent}>
-        <h1 className={styles.title}>{indexPage.title}</h1>
-        <h5 className={styles.description}>{indexPage.subtitle}</h5>
-        <p>{indexPage.extraContent}</p>
+        <H1>{indexPage.title}</H1>
+        <H4>{indexPage.subtitle}</H4>
+        <P>{indexPage.extraContent}</P>
 
         <div className={styles.socials}>
           {socials.map((social) => (
-            <Button newTab={true} path={social.url} key={social.id}>
-              {social.name}
+            <Button asChild key={social.id}>
+              <Link href={social.url} passHref={true}>
+                {social.name}
+              </Link>
             </Button>
           ))}
 
-          <Button path="/projects">{t("projects")}</Button>
-          <Button path="/blog">{t("blogPage")}</Button>
+          <Button asChild>
+            <Link href="/projects">{t("projects")}</Link>
+          </Button>
+          <Button>
+            <Link href="/blog">{t("blogPage")}</Link>
+          </Button>
         </div>
       </div>
       <div className={styles.blob}>
