@@ -79,7 +79,7 @@ export default async function Index({
 
         <div className={styles.socials}>
           {socials.map((social) => (
-            <Button asChild key={social.id}>
+            <Button size={"icon"} asChild key={social.id}>
               <Link href={social.url} passHref={true}>
                 <RenderWIicon text={social.name} />
               </Link>
@@ -89,7 +89,7 @@ export default async function Index({
           <Button asChild>
             <Link href="/projects">{t("projects")}</Link>
           </Button>
-          <Button>
+          <Button asChild>
             <Link href="/blog">{t("blogPage")}</Link>
           </Button>
         </div>
