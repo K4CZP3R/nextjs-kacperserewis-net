@@ -8,15 +8,10 @@ export type ButtonProps = JSX.IntrinsicElements["div"] & {
   newTab?: boolean;
 };
 
-export default class Button extends React.Component<ButtonProps> {
-  render() {
-    return (
-      <Link
-        href={this.props.path}
-        className={[styles.cta, "button-hover"].join(" ")}
-      >
-        <span>{this.props.children}</span>
-      </Link>
-    );
-  }
+export default function Button(props: ButtonProps) {
+  return (
+    <Link href={props.path} className={[styles.cta, "button-hover"].join(" ")}>
+      <span>{props.children}</span>
+    </Link>
+  );
 }

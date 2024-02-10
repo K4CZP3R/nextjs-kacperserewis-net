@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./three-dimension-blob.module.css";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { PerspectiveCamera, Vector3 } from "three";
@@ -33,7 +35,7 @@ function Blob(props: BlobProps) {
       const perlin = perlinGenerator.perlin3(
         vertex.x * k + time,
         vertex.y * k,
-        vertex.z * k
+        vertex.z * k,
       );
 
       vertex.normalize().multiplyScalar(1 + 0.3 * perlin);

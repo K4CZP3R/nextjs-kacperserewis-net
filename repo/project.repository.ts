@@ -1,12 +1,20 @@
-import { PROJECTS } from "../data/projects";
+import { Locale } from "@/locales/consts";
 import { IRepository } from "../interfaces/repository.iface";
 import { IProject } from "../models/project.model";
+import { StrapiRestRepository } from "./strapi-rest.repository";
 
-export class ProjectRepository implements IRepository<IProject> {
-  get(id: string): Promise<IProject | null> {
-    return Promise.resolve(PROJECTS.find((project) => project.slug === id) || null);
+export class ProjectRepository
+  extends StrapiRestRepository<IProject>
+  implements IRepository<IProject>
+{
+  constructor() {
+    super("projects");
   }
-  getAll(): Promise<IProject[]> {
-    return Promise.resolve(PROJECTS);
+
+  get(id: string, locale: Locale): Promise<IProject | null> {
+    return super.get(id, locale);
+  }
+  getAll(locale: Locale): Promise<IProject[]> {
+    return super.getAll(locale);
   }
 }

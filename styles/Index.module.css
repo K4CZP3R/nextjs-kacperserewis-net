@@ -18,8 +18,9 @@
 }
 
 .socials {
+    padding-top: 10px;
     display: flex;
-    gap: 10px;
+    gap: 8px;
     flex-wrap: wrap;
 }
 

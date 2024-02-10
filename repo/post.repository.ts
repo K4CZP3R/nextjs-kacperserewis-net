@@ -1,12 +1,20 @@
-import { POSTS } from "../data/post";
 import { IRepository } from "../interfaces/repository.iface";
 import { IPost } from "../models/post.model";
+import { Locale } from "../locales/consts";
+import { StrapiRestRepository } from "./strapi-rest.repository";
 
-export class PostRepository implements IRepository<IPost> {
-  get(id: string): Promise<IPost | null> {
-    return Promise.resolve(POSTS.find((post) => post.slug === id) || null);
+export class PostRepository
+  extends StrapiRestRepository<IPost>
+  implements IRepository<IPost>
+{
+  constructor() {
+    super("posts");
   }
-  getAll(): Promise<IPost[]> {
-    return Promise.resolve(POSTS);
+
+  get(id: string, locale: Locale): Promise<IPost | null> {
+    return super.get(id, locale);
+  }
+  getAll(locale: Locale): Promise<IPost[]> {
+    return super.getAll(locale);
   }
 }
