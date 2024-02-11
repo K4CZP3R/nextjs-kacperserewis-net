@@ -8,7 +8,7 @@ export function H1({ children }: { children: React.ReactNode }) {
 
 export function H2({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="pt-4 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+    <h2 className="scroll-m-20 border-b pb-2 pt-4 text-3xl font-semibold tracking-tight first:mt-0">
       {children}
     </h2>
   );
@@ -31,7 +31,7 @@ export function H4({ children }: { children: React.ReactNode }) {
 }
 
 export function P({ children }: { children: React.ReactNode }) {
-  return <p className="leading-7 ">{children}</p>;
+  return <p className="leading-7">{children}</p>;
 }
 
 export function Blockquote({ children }: { children: React.ReactNode }) {
@@ -42,14 +42,14 @@ export function Blockquote({ children }: { children: React.ReactNode }) {
 
 export function InlineCode({ children }: { children: React.ReactNode }) {
   return (
-    <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold break-words">
+    <code className="bg-muted relative break-words rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
       {children}
     </code>
   );
 }
 
 export function Lead({ children }: { children: React.ReactNode }) {
-  return <p className="text-xl text-muted-foreground">{children}</p>;
+  return <p className="text-muted-foreground text-xl">{children}</p>;
 }
 
 export function Large({ children }: { children: React.ReactNode }) {

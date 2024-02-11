@@ -7,10 +7,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "./ui/button";
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useChangeLocale, useCurrentLocale, useI18n } from "@/locales/client";
 
-export const getEmojiFlag = (locale: string) => {
+const getEmojiFlag = (locale: string) => {
   switch (locale) {
     case "nl":
       return "🇳🇱";
@@ -23,7 +22,7 @@ export const getEmojiFlag = (locale: string) => {
   }
 };
 
-export function LangSelect() {
+export default function LangSelect() {
   const current = useCurrentLocale();
   const set = useChangeLocale();
   return (

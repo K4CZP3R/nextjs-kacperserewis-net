@@ -69,7 +69,6 @@ export default class ThreeDimensionBlob extends React.Component<ThreeDimensionBl
   private camera = new PerspectiveCamera(30, 1, 0.1, 1000);
   constructor(props: ThreeDimensionBlobProps) {
     super(props);
-
     this.camera.position.set(0, 0, 5);
   }
 
