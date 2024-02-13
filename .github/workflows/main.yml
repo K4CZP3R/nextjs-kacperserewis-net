@@ -10,5 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: oven-sh/setup-bun@v1
+      - name: create env file
+        run: |
+          touch .env
+          echo "API_URL=${{ secrets.API_URL }}" > .env
+          echo "API_KEY=${{secrets.API_KEY}}" >> .env
+          echo "WAKAPI_URL=${{secrets.WAKAPI_URL}}" >> .env
       - run: bun install
       - run: bun run do-cache.ts
