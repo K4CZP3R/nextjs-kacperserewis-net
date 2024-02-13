@@ -27,6 +27,7 @@ export class StrapiRestRepository<T> implements IRepository<T> {
         headers: {
           Authorization: `Bearer ${this.apiKey}`,
         },
+        cache: "force-cache",
       },
     );
     const json = (await res.json()) as MultiResponse<T>;
@@ -40,6 +41,7 @@ export class StrapiRestRepository<T> implements IRepository<T> {
       headers: {
         Authorization: `Bearer ${this.apiKey}`,
       },
+      cache: "force-cache",
     });
     const json = (await res.json()) as MultiResponse<T>;
     return json.data.map((d) => {
