@@ -5,4 +5,5 @@ export default {
   projectsPageDescription: "Hier zijn enkele van mijn projecten",
   blogPageDescription: "Hier zijn enkele van mijn blogberichten",
   loading: "Laden...",
+  wait: "Wachten...",
 } as const;

@@ -1,18 +1,15 @@
 import React, { Suspense } from "react";
 
 import dynamic from "next/dynamic";
-import styles from "@/styles/Index.module.css";
-import { Button } from "@/components/ui/button";
 import { PageRepository } from "@/repo/page.repository";
 import { SocialRepository } from "@/repo/social.repository";
 import { getSiteName } from "@/lib/get-site-name";
 import { getI18n } from "@/locales/server";
 import { Locale } from "@/locales/consts";
 import { setStaticParamsLocale } from "next-international/server";
-import Link from "next/link";
 import { H1, H4, P } from "@/components/text";
 import RenderWIicon from "@/components/icons";
-
+import { LinkButton } from "@/components/link-button";
 export async function generateMetadata({
   params: { locale },
 }: {
@@ -65,8 +62,8 @@ export default async function Index({
   }
 
   return (
-    <div className={styles.content}>
-      <div className={styles.textContent}>
+    <div className={"flex flex-row items-center justify-center"}>
+      <div>
         <H1>
           <RenderWIicon text={indexPage.title} />
         </H1>
@@ -77,24 +74,18 @@ export default async function Index({
           <RenderWIicon text={indexPage.extraContent} />
         </P>
 
-        <div className={styles.socials}>
+        <div className={"flex flex-wrap gap-2 pt-2.5"}>
           {socials.map((social) => (
-            <Button size={"icon"} asChild key={social.id}>
-              <Link href={social.url} passHref={true}>
-                <RenderWIicon text={social.name} />
-              </Link>
-            </Button>
+            <LinkButton href={social.url} key={social.id} size={"icon"}>
+              <RenderWIicon text={social.name} />
+            </LinkButton>
           ))}
 
-          <Button asChild>
-            <Link href="/projects">{t("projects")}</Link>
-          </Button>
-          <Button asChild>
-            <Link href="/blog">{t("blogPage")}</Link>
-          </Button>
+          <LinkButton href="/projects">{t("projects")}</LinkButton>
+          <LinkButton href="/blog">{t("blogPage")}</LinkButton>
         </div>
       </div>
-      <div className={styles.blob}>
+      <div className={"absolute -z-10 md:static md:z-0"}>
         <ThreeDimensionBlob
           blobProps={blobProps}
           lightColor={0xf6f6f2}

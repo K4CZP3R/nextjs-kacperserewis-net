@@ -1,8 +1,7 @@
 import { getSiteName } from "@/lib/get-site-name";
-import { Button } from "./ui/button";
-import Link from "next/link";
 import { cookies } from "next/headers";
 import dynamic from "next/dynamic";
+import { LinkButton } from "./link-button";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const cookieStore = cookies();
@@ -17,9 +16,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex h-dvh flex-col items-center justify-between p-2.5">
       <div className="flex items-center">
-        <Button asChild>
-          <Link href={"/"}>{getSiteName("")}</Link>
-        </Button>
+        <LinkButton href="/" noLoading>
+          {getSiteName("")}
+        </LinkButton>
       </div>
       <main className="max-w-3xl">{children}</main>
       <div className="flex items-center gap-2 p-1">
