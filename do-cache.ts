@@ -1,6 +1,7 @@
 import { getCachedBadgeData } from "./lib/get-cached";
 
 async function main() {
+  console.log("Will use", process.env.API_URL);
   const response = await fetch(`${process.env.API_URL}/projects`, {
     headers: { Authorization: "Bearer " + process.env.API_KEY },
     cache: "no-store",
@@ -11,7 +12,7 @@ async function main() {
 
   for (const project of response.data) {
     const wakapis = project.attributes.badges.filter(
-      (b: any) => b.source === "wakapi",
+      (b: any) => b.source === "wakapi"
     );
 
     for (const wakapi of wakapis) {
