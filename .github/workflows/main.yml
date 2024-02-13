@@ -6,7 +6,6 @@ on:
 jobs:
   update-cache:
     name: Update Cache
-    environment: production
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
