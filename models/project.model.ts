@@ -3,7 +3,7 @@ import { z } from "zod";
 
 export const BadgeConfigSchema = z.object({
   type: z.enum(["languages", "total_time"]),
-  source: z.enum(["wakapi", "static"]),
+  source: z.enum(["wakapi", "static", "wakapi-shield"]),
   project: z.string().optional(),
   label: z.string().optional(),
   value: z.string().optional(),
