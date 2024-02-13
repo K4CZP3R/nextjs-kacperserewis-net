@@ -26,7 +26,7 @@ function ThemeToggle({ initialValue }: { initialValue: Theme }) {
       setTheme(
         window.matchMedia("(prefers-color-scheme: dark)").matches
           ? "dark"
-          : "light"
+          : "light",
       );
     }
   }, [theme]);
@@ -59,7 +59,7 @@ function ThemeToggle({ initialValue }: { initialValue: Theme }) {
         <DropdownMenuItem onClick={() => setTheme("dark")}>
           Dark
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("light")}>
+        <DropdownMenuItem onClick={() => setTheme("system")}>
           System
         </DropdownMenuItem>
       </DropdownMenuContent>

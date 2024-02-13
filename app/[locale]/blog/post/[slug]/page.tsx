@@ -25,7 +25,7 @@ export async function generateMetadata({
 
 const components = {
   pre: (props: any) => (
-    <pre className="bg-muted rounded overflow-x-auto" {...props} />
+    <pre className="bg-muted overflow-x-auto rounded" {...props} />
   ),
   code: (props: any) => <InlineCode {...props} />,
   h1: (props: any) => <H1 {...props} />,
@@ -67,7 +67,7 @@ export default async function Index({
   }
 
   return (
-    <div className={styles.content}>
+    <div className={"maxw100vw flex flex-col items-center justify-center p-2"}>
       <H1>{post.title}</H1>
       <div className="wrapper" style={{ paddingTop: "2rem" }}>
         {/* @ts-ignore */}
