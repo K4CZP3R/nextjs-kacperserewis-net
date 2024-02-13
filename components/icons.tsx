@@ -16,21 +16,22 @@ export default function Icon({ text }: { text: string }) {
     verticalAlign: "baseline",
   };
 
-  const renderIcon = (icon: string) => {
+  const renderIcon = (icon: string, key: string) => {
     switch (icon) {
       case "school":
-        return <School2 style={style} size={16} />;
+        return <School2 style={style} size={16} key={key} />;
       case "work":
-        return <Briefcase style={style} size={16} />;
+        return <Briefcase style={style} size={16} key={key} />;
       case "github":
-        return <GitHubLogoIcon style={style} />;
+        return <GitHubLogoIcon style={style} key={key} />;
       case "mail":
-        return <Mail style={style} size={16} />;
+        return <Mail style={style} size={16} key={key} />;
       case "linkedin":
-        return <LinkedInLogoIcon style={style} />;
+        return <LinkedInLogoIcon style={style} key={key} />;
       case "stofloos":
         return (
           <img
+            key={key}
             width={16}
             height={16}
             style={style}
@@ -48,7 +49,7 @@ export default function Icon({ text }: { text: string }) {
       {splitText.map((item, index) => {
         if (item.startsWith("icon:")) {
           const icon = item.replace("icon:", "").replace(";", "");
-          return renderIcon(icon);
+          return renderIcon(icon, index.toString());
         } else {
           return item;
         }

@@ -7,8 +7,26 @@ export type BadgeProps = {
   response: any;
 };
 
-export async function Badges(props: { badges: BadgeConfig[] }) {
-  const requests = props.badges
+async function getStaticBadges(badges: BadgeConfig[]) {
+  const staticBadges = badges
+    .filter((b) => b.source === "static")
+    .map((badge, i) => {
+      return (
+        <UiBadge key={"static" + i.toString()} variant={"secondary"}>
+          {badge.value}
+        </UiBadge>
+      );
+    });
+
+  return staticBadges;
+}
+
+async function getWakapiShieldBadges(badges: BadgeConfig[]) {
+  return [];
+}
+
+async function getWakapiBadges(badges: BadgeConfig[]) {
+  const requests = badges
     .filter((b) => b.source === "wakapi")
     .map((badge) => {
       return {
@@ -29,7 +47,7 @@ export async function Badges(props: { badges: BadgeConfig[] }) {
     await Promise.all(uniqueRequests.map((req) => getCachedBadgeData(req)))
   ).filter((res) => res && res.response && res.key);
 
-  const wakapiBadges = props.badges
+  const wakapiBadges = badges
     .filter((b) => b.source === "wakapi")
     .map((badge, i) => {
       const foundResponse = responses.find(
@@ -48,19 +66,16 @@ export async function Badges(props: { badges: BadgeConfig[] }) {
       return <UiBadge key={"error"}>Error</UiBadge>;
     });
 
-  const staticBadges = props.badges
-    .filter((b) => b.source === "static")
-    .map((badge, i) => {
-      return (
-        <UiBadge key={"static" + i.toString()} variant={"secondary"}>
-          {badge.value}
-        </UiBadge>
-      );
-    });
+  return wakapiBadges;
+}
 
+export async function Badges(props: { badges: BadgeConfig[] }) {
+  const staticBadges = await getStaticBadges(props.badges);
+  const wakapiBadges = await getWakapiBadges(props.badges);
+  const wakapiShieldBadges = await getWakapiShieldBadges(props.badges);
   return (
     <div className="flex gap-1">
-      {wakapiBadges} {staticBadges}
+      {wakapiBadges} {staticBadges} {wakapiShieldBadges}
     </div>
   );
 }

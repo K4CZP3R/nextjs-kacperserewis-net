@@ -1,19 +1,23 @@
-"use server";
-
 import { getBadgeConfigKey } from "@/models/project.model";
 
-export async function getCachedBadgeData({
-  label,
-  project,
-}: {
-  label?: string;
-  project?: string;
-}) {
+export async function getCachedBadgeData(
+  {
+    label,
+    project,
+  }: {
+    label?: string;
+    project?: string;
+  },
+  onlyCached = true,
+) {
   const key = getBadgeConfigKey({ label, project });
 
   const cachedResponse = await fetch(
     `${process.env.API_URL}/cached-responses?filters[key][$eq]=${key}`,
-    { headers: { Authorization: "Bearer " + process.env.API_KEY } }
+    {
+      headers: { Authorization: "Bearer " + process.env.API_KEY },
+      cache: "no-store",
+    },
   );
 
   if (!cachedResponse.ok) {
@@ -22,7 +26,7 @@ export async function getCachedBadgeData({
   }
 
   const cached = (await cachedResponse.json()).data.find(
-    (d: any) => d.attributes.key === key
+    (d: any) => d.attributes.key === key,
   );
 
   const isNew = !cached;
@@ -31,14 +35,15 @@ export async function getCachedBadgeData({
       1000
     : 0;
 
-  if (!cached || secondsOld > 86400) {
+  if (!onlyCached && (!cached || secondsOld > 86400)) {
     console.log(
       key,
       "is not cached or is older than 24 hours",
       isNew,
       secondsOld,
-      cached ? cached.attributes.updatedAt : ""
+      cached ? cached.attributes.updatedAt : "",
     );
+
     const waka = await fetch(
       `${
         process.env.WAKAPI_URL
@@ -47,8 +52,10 @@ export async function getCachedBadgeData({
       }`,
       {
         cache: "no-store",
-      }
+      },
     ).then((res) => res.json());
+
+    console.log("Waka", waka);
 
     const addResponse = await fetch(
       isNew
@@ -66,7 +73,7 @@ export async function getCachedBadgeData({
             response: waka,
           },
         }),
-      }
+      },
     );
 
     if (!addResponse.ok) {

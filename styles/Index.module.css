@@ -1,13 +1,24 @@
+.blob {
+    animation: appearSlideUp 1s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+@keyframes appearSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(250px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
 .container {
     display: flex;
     flex-direction: column;
     height: 100vh;
     justify-content: space-between;
     align-items: center;
-}
-
-.textContent {
-    animation: appearSlideUp 1s cubic-bezier(0.65, 0, 0.35, 1) both;
 }
 
 .content {
@@ -22,21 +33,6 @@
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
-}
-
-.blob {
-    animation: appearSlideUp 1s cubic-bezier(0.65, 0, 0.35, 1) both;
-}
-
-@keyframes appearSlideUp {
-    0% {
-        opacity: 0;
-        transform: translateY(250px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0px);
-    }
 }
 
 /* Smaller than 768px */
