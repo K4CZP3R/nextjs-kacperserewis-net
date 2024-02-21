@@ -1,0 +1,17 @@
+{
+  "Index": {
+    "name": "Index"
+  },
+  "Projects": {
+    "name": "Projekty",
+    "description": "Oto kilka moich projektów"
+  },
+  "Blog": {
+    "name": "Blog",
+    "description": "Oto kilka moich wpisów na blogu"
+  },
+  "States": {
+    "loading": "Ładowanie...",
+    "wait": "Chwila..."
+  }
+}

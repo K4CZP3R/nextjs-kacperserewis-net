@@ -1,0 +1,17 @@
+{
+  "Index": {
+    "name": "Index"
+  },
+  "Projects": {
+    "name": "Projecten",
+    "description": "Hier zijn enkele van mijn projecten"
+  },
+  "Blog": {
+    "name": "Blog",
+    "description": "Hier zijn enkele van mijn blogberichten"
+  },
+  "State": {
+    "loading": "Laden...",
+    "wait": "Wachten..."
+  }
+}
