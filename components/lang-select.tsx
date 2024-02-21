@@ -7,7 +7,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "./ui/button";
-import { useChangeLocale, useCurrentLocale, useI18n } from "@/locales/client";
+import { usePathname, useRouter } from "@/navigation";
+import { useParams } from "next/navigation";
 
 const getEmojiFlag = (locale: string) => {
   switch (locale) {
@@ -23,8 +24,14 @@ const getEmojiFlag = (locale: string) => {
 };
 
 export default function LangSelect() {
-  const current = useCurrentLocale();
-  const set = useChangeLocale();
+  const pathname = usePathname();
+  const router = useRouter();
+  const params = useParams();
+
+  const current = params.locale as string;
+  const set = (newLocale: string) => {
+    router.replace(pathname, { locale: newLocale });
+  };
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

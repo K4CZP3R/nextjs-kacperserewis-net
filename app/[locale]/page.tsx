@@ -4,23 +4,21 @@ import dynamic from "next/dynamic";
 import { PageRepository } from "@/repo/page.repository";
 import { SocialRepository } from "@/repo/social.repository";
 import { getSiteName } from "@/lib/get-site-name";
-import { getI18n } from "@/locales/server";
-import { Locale } from "@/locales/consts";
-import { setStaticParamsLocale } from "next-international/server";
 import { H1, H4, P } from "@/components/text";
 import RenderWIicon from "@/components/icons";
 import { LinkButton } from "@/components/link-button";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+
 export async function generateMetadata({
   params: { locale },
 }: {
-  params: { locale: Locale };
+  params: { locale: string };
 }) {
-  setStaticParamsLocale(locale);
-  const t = await getI18n();
+  const t = await getTranslations({ locale, namespace: "Index" });
   const indexPage = await new PageRepository().get("index", locale);
 
   return {
-    title: getSiteName(t("index")),
+    title: getSiteName(t("name")),
     description: indexPage?.extraContent,
   };
 }
@@ -28,10 +26,11 @@ export async function generateMetadata({
 export default async function Index({
   params: { locale },
 }: {
-  params: { locale: Locale };
+  params: { locale: string };
 }) {
-  setStaticParamsLocale(locale);
-  const t = await getI18n();
+  unstable_setRequestLocale(locale);
+  const t = await getTranslations();
+
   const indexPage = await new PageRepository().get("index", locale);
   const socials = await new SocialRepository().getAll();
 
@@ -47,7 +46,7 @@ export default async function Index({
         ></div>
       ),
       ssr: true,
-    },
+    }
   );
 
   const blobProps = {
@@ -58,7 +57,7 @@ export default async function Index({
   };
 
   if (indexPage === null || socials === null) {
-    return <div>{t("loading")}</div>;
+    return <div>{t("States.loading")}</div>;
   }
 
   return (
@@ -81,8 +80,8 @@ export default async function Index({
             </LinkButton>
           ))}
 
-          <LinkButton href="/projects">{t("projects")}</LinkButton>
-          <LinkButton href="/blog">{t("blogPage")}</LinkButton>
+          <LinkButton href="/projects">{t("Projects.name")}</LinkButton>
+          <LinkButton href="/blog">{t("Blog.name")}</LinkButton>
         </div>
       </div>
       <div className={"absolute -z-10 md:static md:z-0"}>

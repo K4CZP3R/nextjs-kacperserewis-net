@@ -1,5 +1,3 @@
-import { Locale } from "../locales/consts";
-
 export interface IPost {
   title: string;
   description: string;
@@ -9,5 +7,5 @@ export interface IPost {
   slug: string;
   createdAt: string;
   updatedAt: string;
-  locale: Locale;
+  locale: string;
 }

@@ -1,18 +1,29 @@
+import { fetchJson } from "./lib/fetch";
 import { getCachedBadgeData } from "./lib/get-cached";
 
 async function main() {
   console.log("Will use", process.env.API_URL);
-  const response = await fetch(`${process.env.API_URL}/projects`, {
-    headers: { Authorization: "Bearer " + process.env.API_KEY },
-    cache: "no-store",
-  }).then((res) => res.json());
+
+  const response = await fetchJson<{ data: any[] }>(
+    `${process.env.API_URL}/projects`,
+    {
+      headers: { Authorization: "Bearer " + process.env.API_KEY },
+      cache: "no-store",
+    },
+  );
+
+  if (response.isErr()) {
+    console.error("Error fetching projects", response);
+    // non-zero exit code
+    process.exit(1);
+  }
 
   const labels: string[] = [];
   const projects: string[] = [];
 
-  for (const project of response.data) {
+  for (const project of response.unwrap().data) {
     const wakapis = project.attributes.badges.filter(
-      (b: any) => b.source === "wakapi"
+      (b: any) => b.source === "wakapi",
     );
 
     for (const wakapi of wakapis) {

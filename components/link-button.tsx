@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/navigation";
 import { Button } from "./ui/button";
 import { useState } from "react";
 import { ReloadIcon } from "@radix-ui/react-icons";

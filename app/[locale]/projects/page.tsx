@@ -1,4 +1,3 @@
-import { setStaticParamsLocale } from "next-international/server";
 import {
   Card,
   CardDescription,
@@ -7,34 +6,39 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { getSiteName } from "@/lib/get-site-name";
-import { getI18n } from "@/locales/server";
 import { ProjectRepository } from "@/repo/project.repository";
-import { Locale } from "@/locales/consts";
 import { H1, P } from "@/components/text";
 import { Badges } from "@/components/badges";
 import { LinkButton } from "@/components/link-button";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 
-export async function generateMetadata() {
-  const t = await getI18n();
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const t = await getTranslations({ locale, namespace: "Projects" });
+
   return {
-    title: getSiteName(t("projects")),
-    description: t("projectsPageDescription"),
+    title: getSiteName(t("name")),
+    description: t("description"),
   };
 }
 
 export default async function Projects({
   params: { locale },
 }: {
-  params: { locale: Locale };
+  params: { locale: string };
 }) {
-  setStaticParamsLocale(locale);
-  const t = await getI18n();
+  unstable_setRequestLocale(locale);
+  const t = await getTranslations("Projects");
+
   const projects = await new ProjectRepository().getAll(locale);
 
   return (
     <div className={"flex flex-col  justify-center  pt-4"}>
-      <H1>{t("projects")}</H1>
-      <P>{t("projectsPageDescription")}</P>
+      <H1>{t("name")}</H1>
+      <P>{t("description")}</P>
 
       <div className={"max-wpt-4 maxw95vw flex flex-col justify-center gap-4"}>
         {projects.map((project) => (
@@ -42,7 +46,6 @@ export default async function Projects({
             <CardHeader>
               <CardTitle className="flex flex-col  gap-2">
                 {project.title}
-                {/* @ts-expect-error Async Server Component */}
                 <Badges badges={project.badges ?? []} key={project.slug} />
               </CardTitle>
               <CardDescription>{project.description}</CardDescription>
