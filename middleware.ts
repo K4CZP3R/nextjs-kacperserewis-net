@@ -1,16 +1,12 @@
-import { createI18nMiddleware } from "next-international/middleware";
-import { NextRequest } from "next/server";
+import createMiddleware from "next-intl/middleware";
+import { locales, localePrefix } from "./navigation";
 
-const I18nMiddleware = createI18nMiddleware({
-  locales: ["en", "pl", "nl"],
+export default createMiddleware({
   defaultLocale: "nl",
-  urlMappingStrategy: "rewriteDefault",
+  localePrefix,
+  locales,
 });
-
-export function middleware(request: NextRequest) {
-  return I18nMiddleware(request);
-}
-
 export const config = {
-  matcher: ["/((?!api|static|.*\\..*|_next|favicon.ico|robots.txt).*)"],
+  // Match only internationalized pathnames
+  matcher: ["/", "/(pl|nl|en)/:path*"],
 };
