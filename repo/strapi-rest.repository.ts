@@ -1,5 +1,4 @@
 import { IRepository } from "@/interfaces/repository.iface";
-import { Locale } from "@/locales/consts";
 
 type MultiResponse<T> = {
   data: { id: number; attributes: T }[];
@@ -20,7 +19,7 @@ export class StrapiRestRepository<T> implements IRepository<T> {
     private apiKey: string = process.env.API_KEY ?? "",
   ) {}
 
-  async get(id: string, locale: Locale): Promise<T | null> {
+  async get(id: string, locale: string): Promise<T | null> {
     const res = await fetch(
       `${this.baseUrl}/${this.path}?locale=${locale}&filters[slug][$eq]=${id}`,
       {
@@ -36,7 +35,7 @@ export class StrapiRestRepository<T> implements IRepository<T> {
       : null;
   }
 
-  async getAll(locale: Locale): Promise<T[]> {
+  async getAll(locale: string): Promise<T[]> {
     const res = await fetch(`${this.baseUrl}/${this.path}?locale=${locale}`, {
       headers: {
         Authorization: `Bearer ${this.apiKey}`,

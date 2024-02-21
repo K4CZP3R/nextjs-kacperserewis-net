@@ -1,4 +1,3 @@
-import { Locale } from "@/locales/consts";
 import { z } from "zod";
 
 export const BadgeConfigSchema = z.object({
@@ -34,5 +33,5 @@ export interface IProject {
   buttons: { title: string; path: string }[];
   tags: string[];
   badges: BadgeConfig[] | null;
-  locale: Locale;
+  locale: string;
 }

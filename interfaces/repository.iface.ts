@@ -1,6 +1,4 @@
-import { Locale } from "../locales/consts";
-
 export interface IRepository<T> {
-  get(id: string, locale: Locale): Promise<T | null>;
-  getAll(locale: Locale): Promise<T[]>;
+  get(id: string, locale: string): Promise<T | null>;
+  getAll(locale: string): Promise<T[]>;
 }
