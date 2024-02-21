@@ -1,0 +1,17 @@
+{
+  "Index": {
+    "name": "Index"
+  },
+  "Blog": {
+    "name": "Blog",
+    "description": "Here are some of my blog posts"
+  },
+  "Projects": {
+    "name": "Projects",
+    "description": "Here are some of my projects"
+  },
+  "State": {
+    "loading": "Loading...",
+    "wait": "Wait..."
+  }
+}

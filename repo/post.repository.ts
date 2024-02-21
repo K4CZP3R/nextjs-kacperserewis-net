@@ -1,6 +1,5 @@
 import { IRepository } from "../interfaces/repository.iface";
 import { IPost } from "../models/post.model";
-import { Locale } from "../locales/consts";
 import { StrapiRestRepository } from "./strapi-rest.repository";
 
 export class PostRepository
@@ -11,10 +10,10 @@ export class PostRepository
     super("posts");
   }
 
-  get(id: string, locale: Locale): Promise<IPost | null> {
+  get(id: string, locale: string): Promise<IPost | null> {
     return super.get(id, locale);
   }
-  getAll(locale: Locale): Promise<IPost[]> {
+  getAll(locale: string): Promise<IPost[]> {
     return super.getAll(locale);
   }
 }

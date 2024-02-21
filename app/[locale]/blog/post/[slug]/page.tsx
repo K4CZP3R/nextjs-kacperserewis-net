@@ -7,14 +7,13 @@ import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/atom-one-dark.css";
 import { getSiteName } from "../../../../../lib/get-site-name";
 import { PostRepository } from "../../../../../repo/post.repository";
-import { Locale } from "../../../../../locales/consts";
-import { setStaticParamsLocale } from "next-international/server";
 import { H1, H2, H3, H4, InlineCode, P } from "@/components/text";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string; locale: Locale };
+  params: { slug: string; locale: string };
 }) {
   const post = await new PostRepository().get(params.slug, params.locale);
   return {
@@ -36,7 +35,7 @@ const components = {
 };
 
 export async function generateStaticParams() {
-  const locales: Locale[] = ["en", "nl", "pl"];
+  const locales: string[] = ["en", "nl", "pl"];
 
   const allPaths = [];
   for (const locale of locales) {
@@ -55,10 +54,9 @@ export async function generateStaticParams() {
 export default async function Index({
   params,
 }: {
-  params: { slug: string; locale: Locale };
+  params: { slug: string; locale: string };
 }) {
-  setStaticParamsLocale(params.locale);
-
+  unstable_setRequestLocale(params.locale);
   const { slug } = params;
   const post = await new PostRepository().get(slug, params.locale);
 

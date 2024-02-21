@@ -1,4 +1,5 @@
 import { getBadgeConfigKey } from "@/models/project.model";
+import { fetchJson } from "./fetch";
 
 export async function getCachedBadgeData(
   {
@@ -8,26 +9,29 @@ export async function getCachedBadgeData(
     label?: string;
     project?: string;
   },
-  onlyCached = true,
+  onlyCached = true
 ) {
   const key = getBadgeConfigKey({ label, project });
 
-  const cachedResponse = await fetch(
+  const cachedResponse = await fetchJson(
     `${process.env.API_URL}/cached-responses?filters[key][$eq]=${key}`,
     {
       headers: { Authorization: "Bearer " + process.env.API_KEY },
       cache: "no-store",
-    },
+      next: {
+        revalidate: undefined,
+      },
+    }
   );
 
-  if (!cachedResponse.ok) {
+  if (cachedResponse.isErr()) {
     console.error("Error fetching cached response", cachedResponse);
     return null;
   }
 
-  const cached = (await cachedResponse.json()).data.find(
-    (d: any) => d.attributes.key === key,
-  );
+  const cached = cachedResponse
+    .unwrap()
+    .data.find((d: any) => d.attributes.key === key);
 
   const isNew = !cached;
   const secondsOld = cached
@@ -41,10 +45,10 @@ export async function getCachedBadgeData(
       "is not cached or is older than 24 hours",
       isNew,
       secondsOld,
-      cached ? cached.attributes.updatedAt : "",
+      cached ? cached.attributes.updatedAt : ""
     );
 
-    const waka = await fetch(
+    const wakaResponse = await fetchJson(
       `${
         process.env.WAKAPI_URL
       }/api/compat/wakatime/v1/users/kacper/stats/all_time?${
@@ -52,44 +56,47 @@ export async function getCachedBadgeData(
       }`,
       {
         cache: "no-store",
-      },
-    ).then((res) => res.json());
-
-    console.log("Waka", waka);
-
-    const addResponse = await fetch(
-      isNew
-        ? `${process.env.API_URL}/cached-responses`
-        : `${process.env.API_URL}/cached-responses/${cached.id}`,
-      {
-        method: isNew ? "POST" : "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + process.env.API_KEY,
-        },
-        body: JSON.stringify({
-          data: {
-            key,
-            response: waka,
-          },
-        }),
-      },
+      }
     );
 
-    if (!addResponse.ok) {
-      console.error("Error adding cached response", addResponse);
-      return {
-        error: "Error adding cached response",
-        isNew,
-      };
-    }
+    if (!wakaResponse.isErr()) {
+      const waka = wakaResponse.unwrap().data;
 
-    return {
-      cached: false,
-      isNew,
-      response: waka,
-      key,
-    };
+      const addResponse = await fetch(
+        isNew
+          ? `${process.env.API_URL}/cached-responses`
+          : `${process.env.API_URL}/cached-responses/${cached.id}`,
+        {
+          method: isNew ? "POST" : "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + process.env.API_KEY,
+          },
+          body: JSON.stringify({
+            data: {
+              key,
+              response: waka,
+            },
+          }),
+        }
+      );
+
+      if (!addResponse.ok) {
+        console.error("Error adding cached response", addResponse);
+        return {
+          error: "Error adding cached response",
+          isNew,
+        };
+      }
+      return {
+        cached: false,
+        isNew,
+        response: waka,
+        key,
+      };
+    } else {
+      console.warn("Waka failed, will use cached.");
+    }
   }
 
   return {
