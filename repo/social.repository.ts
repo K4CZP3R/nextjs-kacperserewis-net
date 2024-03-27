@@ -1,7 +1,6 @@
 import { IRepository } from "../interfaces/repository.iface";
 import { ISocial } from "../models/social.model";
 import { FileRestRepository } from "./file-rest.repository";
-import { StrapiRestRepository } from "./strapi-rest.repository";
 
 export class SocialRepository
   extends FileRestRepository<ISocial>

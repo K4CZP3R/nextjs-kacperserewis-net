@@ -1,7 +1,6 @@
 import { IRepository } from "../interfaces/repository.iface";
 import { IPost } from "../models/post.model";
 import { FileRestRepository } from "./file-rest.repository";
-import { StrapiRestRepository } from "./strapi-rest.repository";
 
 export class PostRepository
   extends FileRestRepository<IPost>
