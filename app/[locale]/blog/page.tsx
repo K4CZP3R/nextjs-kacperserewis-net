@@ -1,14 +1,7 @@
 import { getSiteName } from "@/lib/get-site-name";
 import { PostRepository } from "@/repo/post.repository";
 import { H1, P } from "@/components/text";
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { LinkButton } from "@/components/link-button";
+
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 

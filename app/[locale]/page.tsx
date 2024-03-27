@@ -6,7 +6,6 @@ import { SocialRepository } from "@/repo/social.repository";
 import { getSiteName } from "@/lib/get-site-name";
 import { H1, H4, P } from "@/components/text";
 import RenderWIicon from "@/components/icons";
-import { LinkButton } from "@/components/link-button";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 
