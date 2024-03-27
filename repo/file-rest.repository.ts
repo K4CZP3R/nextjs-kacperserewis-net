@@ -7,7 +7,6 @@ export class FileRestRepository<T> implements IRepository<T> {
   constructor(private basePath: string) {}
   async readFile(filePath: string): Promise<string> {
     const fullPath = path.join(process.cwd(), "data", this.basePath, filePath);
-    console.log("Reading file", fullPath);
     const content = await fsPromises.readFile(fullPath, "utf-8");
 
     return content;

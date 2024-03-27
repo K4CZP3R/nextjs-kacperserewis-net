@@ -1,20 +1,20 @@
 {
-    "en": {
-        "slug": "index",
-        "title": "Kacper Serewi\u00f3",
-        "subtitle": "Software Engineer",
-        "extraContent": ""
-    },
-    "pl": {
-        "slug": "index",
-        "title": "Kacper Serewi\u00f3",
-        "subtitle": "Programista",
-        "extraContent": ""
-    },
-    "nl": {
-        "slug": "index",
-        "title": "Kacper Serewi\u00f3",
-        "subtitle": "Software Engineer",
-        "extraContent": ""
-    }
+  "en": {
+    "slug": "index",
+    "title": "Kacper Serewiś",
+    "subtitle": "Software Engineer",
+    "extraContent": ""
+  },
+  "pl": {
+    "slug": "index",
+    "title": "Kacper Serewiś",
+    "subtitle": "Programista",
+    "extraContent": ""
+  },
+  "nl": {
+    "slug": "index",
+    "title": "Kacper Serewiś",
+    "subtitle": "Software Engineer",
+    "extraContent": ""
+  }
 }

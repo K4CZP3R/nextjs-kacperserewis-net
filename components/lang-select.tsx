@@ -1,12 +1,5 @@
 "use client";
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Button } from "./ui/button";
 import { usePathname, useRouter } from "@/navigation";
 import { useParams } from "next/navigation";
 
@@ -32,25 +25,24 @@ export default function LangSelect() {
   const set = (newLocale: string) => {
     router.replace(pathname, { locale: newLocale });
   };
+
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant={"outline"} size={"icon"}>
-          {getEmojiFlag(current)}
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => set("nl")}>
-          Dutch {getEmojiFlag("nl")}
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => set("pl")}>
-          Polish {getEmojiFlag("pl")}
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => set("en")}>
-          English {getEmojiFlag("en")}
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <details className="dropdown dropdown-top">
+      <summary className="btn btn-square btn-outline">
+        {getEmojiFlag(current)}
+        <span className="sr-only">Toggle theme</span>
+      </summary>
+      <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+        <li>
+          <a onClick={() => set("nl")}>Dutch {getEmojiFlag("nl")}</a>
+        </li>
+        <li>
+          <a onClick={() => set("pl")}>Polish {getEmojiFlag("pl")}</a>
+        </li>
+        <li>
+          <a onClick={() => set("en")}>English {getEmojiFlag("en")}</a>
+        </li>
+      </ul>
+    </details>
   );
 }

@@ -20,8 +20,10 @@ export default function RootLayout({
   unstable_setRequestLocale(locale);
   const cookieStore = cookies();
   const theme = cookieStore.get("theme")?.value || "dark";
+
+  console.log(theme);
   return (
-    <html lang={locale} className={theme}>
+    <html lang={locale} data-theme={theme}>
       <body>
         <Layout>{children}</Layout>
       </body>

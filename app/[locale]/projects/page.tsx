@@ -1,16 +1,8 @@
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { getSiteName } from "@/lib/get-site-name";
 import { ProjectRepository } from "@/repo/project.repository";
 import { H1, P } from "@/components/text";
-import { Badges } from "@/components/badges";
-import { LinkButton } from "@/components/link-button";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import Link from "next/link";
 
 export async function generateMetadata({
   params: { locale },
@@ -42,28 +34,24 @@ export default async function Projects({
 
       <div className={"max-wpt-4 maxw95vw flex flex-col justify-center gap-4"}>
         {projects.map((project) => (
-          <Card key={project.id}>
-            <CardHeader>
-              <CardTitle className="flex flex-col  gap-2">
-                {project.data.title}
-                <Badges badges={project.data.badges ?? []} key={project.id} />
-              </CardTitle>
-              <CardDescription>{project.data.description}</CardDescription>
-            </CardHeader>
-            <CardFooter className="flex flex-wrap gap-1">
-              {project.data.buttons.map((button) => {
-                return (
-                  <LinkButton
-                    href={button.path}
-                    variant={"secondary"}
-                    key={button.path}
-                  >
-                    {button.title}
-                  </LinkButton>
-                );
-              })}
-            </CardFooter>
-          </Card>
+          <div
+            className="card bg-neutral text-neutral-content"
+            key={project.id}
+          >
+            <div className="card-body items-center text-center">
+              <h2 className="card-title">{project.data.title}</h2>
+              <p>{project.data.description}</p>
+              <div className="card-actions justify-end">
+                {project.data.buttons.map((button) => {
+                  return (
+                    <Link href={button.path} key={button.path}>
+                      <button className="btn btn-sm">{button.title}</button>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
         ))}
       </div>
     </div>

@@ -8,6 +8,7 @@ import { H1, H4, P } from "@/components/text";
 import RenderWIicon from "@/components/icons";
 import { LinkButton } from "@/components/link-button";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import Link from "next/link";
 
 export async function generateMetadata({
   params: { locale },
@@ -50,7 +51,7 @@ export default async function Index({
   );
 
   const blobProps = {
-    blobColor: 0xf97316,
+    blobColor: 0xdca54c,
     blobColorEmission: 0.5,
     blobSpeed: 0.001,
     blobSpikeness: 1.25,
@@ -75,13 +76,20 @@ export default async function Index({
 
         <div className={"flex flex-wrap gap-2 pt-2.5"}>
           {socials.map((social) => (
-            <LinkButton href={social.data.url} key={social.id} size={"icon"}>
-              <RenderWIicon text={social.data.name} />
-            </LinkButton>
+            <Link href={social.data.url} key={social.id}>
+              <button className="btn btn-square">
+                <RenderWIicon text={social.data.name} />
+              </button>
+            </Link>
           ))}
 
-          <LinkButton href="/projects">{t("Projects.name")}</LinkButton>
-          <LinkButton href="/blog">{t("Blog.name")}</LinkButton>
+          <Link href={`${locale}/projects`}>
+            <button className="btn">{t("Projects.name")}</button>
+          </Link>
+
+          <Link href={`${locale}/blog`}>
+            <button className="btn">{t("Blog.name")}</button>
+          </Link>
         </div>
       </div>
       <div className={"absolute -z-10 md:static md:z-0"}>
