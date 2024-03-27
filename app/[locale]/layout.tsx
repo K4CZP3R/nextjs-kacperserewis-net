@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import { unstable_setRequestLocale } from "next-intl/server";
 import { cookies } from "next/headers";
 import { Bricolage_Grotesque as FontSans } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 // Can be imported from a shared config
 const locales = ["en", "nl", "pl"];
@@ -29,6 +30,7 @@ export default function RootLayout({
     <html lang={locale} data-theme={theme} className={fontsans.className}>
       <body>
         <Layout>{children}</Layout>
+        <SpeedInsights />
       </body>
     </html>
   );
