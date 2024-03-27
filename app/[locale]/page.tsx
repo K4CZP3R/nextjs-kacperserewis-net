@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import { PageRepository } from "@/repo/page.repository";
 import { SocialRepository } from "@/repo/social.repository";
 import { getSiteName } from "@/lib/get-site-name";
@@ -34,20 +34,20 @@ export default async function Index({
   const indexPage = await new PageRepository().get("index", locale);
   const socials = await new SocialRepository().getAll();
 
-  const ThreeDimensionBlob = dynamic(
-    () => import("@/components/three-dimension-blob/three-dimension-blob"),
-    {
-      loading: () => (
-        <div
-          style={{
-            width: "300px",
-            height: "300px",
-          }}
-        ></div>
-      ),
-      ssr: true,
-    }
-  );
+  // const ThreeDimensionBlob = dynamic(
+  //   () => import("@/components/three-dimension-blob/three-dimension-blob"),
+  //   {
+  //     loading: () => (
+  //       <div
+  //         style={{
+  //           width: "300px",
+  //           height: "300px",
+  //         }}
+  //       ></div>
+  //     ),
+  //     ssr: true,
+  //   }
+  // );
 
   const blobProps = {
     blobColor: 0xdca54c,
@@ -92,11 +92,11 @@ export default async function Index({
         </div>
       </div>
       <div className={"absolute -z-10 md:static md:z-0"}>
-        <ThreeDimensionBlob
+        {/* <ThreeDimensionBlob
           blobProps={blobProps}
           lightColor={0xf6f6f2}
           lightColorEmission={0.15}
-        ></ThreeDimensionBlob>
+        ></ThreeDimensionBlob> */}
       </div>
     </div>
   );

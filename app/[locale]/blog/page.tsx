@@ -34,16 +34,13 @@ export default async function Blog({
       <div className={"maxw95vw flex flex-col justify-center gap-4 pt-4"}>
         {posts.map((post) => {
           return (
-            <div
-              className="card w-96 bg-neutral text-neutral-content"
-              key={post.id}
-            >
+            <div className="card w-96 glass" key={post.id}>
               <div className="card-body items-center text-center">
                 <h2 className="card-title">{post.data.title}</h2>
                 <p>{post.data.description}</p>
                 <div className="card-actions justify-end">
                   <Link href={`blog/post/${post.id}`}>
-                    <button className="btn btn-primary">Read</button>
+                    <button className="btn btn-neutral">Read</button>
                   </Link>
                 </div>
               </div>

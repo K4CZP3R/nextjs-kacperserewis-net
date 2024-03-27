@@ -24,7 +24,7 @@ export async function generateMetadata({
 
 const components = {
   pre: (props: any) => (
-    <pre className="bg-muted overflow-x-auto rounded" {...props} />
+    <pre className="bg-muted overflow-x-auto rounded bg-base" {...props} />
   ),
   code: (props: any) => <InlineCode {...props} />,
   h1: (props: any) => <H1 {...props} />,
@@ -65,14 +65,19 @@ export default async function Index({
   }
 
   return (
-    <div className={"maxw100vw flex flex-col items-center justify-center p-2"}>
+    <div
+      className={
+        "maxw100vw flex flex-col items-center justify-center p-2 gap-5"
+      }
+    >
       <H1>{post.title}</H1>
 
       {post.content && (
-        <div className="wrapper" style={{ paddingTop: "2rem" }}>
+        <div className="wrapper bg-primary-content text-neutral-content rounded-lg">
           {/* @ts-ignore */}
           <MDXRemote
-            key={"aa"}
+            key={post.title}
+            // @ts-ignore
             options={{ mdxOptions: { rehypePlugins: [rehypeHighlight] } }}
             source={post.content}
             components={components}

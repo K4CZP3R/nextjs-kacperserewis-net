@@ -28,7 +28,7 @@ export default function LangSelect() {
 
   return (
     <details className="dropdown dropdown-top">
-      <summary className="btn btn-square btn-outline">
+      <summary className="btn btn-sm btn-square">
         {getEmojiFlag(current)}
         <span className="sr-only">Toggle theme</span>
       </summary>

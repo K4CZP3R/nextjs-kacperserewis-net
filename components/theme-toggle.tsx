@@ -37,7 +37,7 @@ function ThemeToggle({ initialValue }: { initialValue: Theme }) {
 
   return (
     <details className="dropdown dropdown-top">
-      <summary className="btn btn-square btn-outline">
+      <summary className="btn btn-sm btn-square">
         <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
         <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
         <span className="sr-only">Toggle theme</span>
