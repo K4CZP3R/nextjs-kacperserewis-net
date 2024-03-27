@@ -1,0 +1,51 @@
+{
+  "en": {
+    "title": "LoRa Trackers",
+    "slug": "lora-trackers",
+    "description": "OpenRemote requested we connect a quirky IoT device to their platform. We developed a GPS tracker using LoRa technology for communication. The tracker's mesh network sends location data through an edge device to the cloud-based OpenRemote platform. The LoRa-based mesh network enables long-range connectivity and low battery usage for the devices.",
+    "buttons": [
+      {
+        "title": "View Source",
+        "path": "https://github.com/openremote/or-loratrackers"
+      },
+      {
+        "title": "View Demo",
+        "path": "https://www.youtube.com/watch?v=72r54r_dwo8"
+      }
+    ],
+    "tags": ["#LoRa", "#IoT", "#OpenRemote", "#GPS", "#MeshNetwork"]
+  },
+  "nl": {
+    "title": "LoRa Trackers",
+    "slug": "lora-trackers",
+    "description": "OpenRemote heeft ons gevraagd een eigenzinnig IoT-apparaat aan hun platform te koppelen. We hebben een GPS-tracker ontwikkeld die gebruikmaakt van LoRa-technologie voor communicatie. Het mesh-netwerk van de tracker stuurt locatiegegevens via een edge-apparaat naar het cloudgebaseerde OpenRemote-platform. Het op LoRa gebaseerde mesh-netwerk maakt langeafstandsconnectiviteit en laag batterijgebruik voor de apparaten mogelijk.",
+    "buttons": [
+      {
+        "title": "Bekijk Broncode",
+        "path": "https://github.com/openremote/or-loratrackers"
+      },
+      {
+        "title": "Bekijk Demo",
+        "path": "https://www.youtube.com/watch?v=72r54r_dwo8"
+      }
+    ],
+    "tags": ["#LoRa", "#IoT", "#OpenRemote", "#GPS", "#MeshNetwork"]
+  },
+  "pl": {
+    "title": "Śledzenie LoRa",
+    "slug": "lora-trackers",
+    "description": "OpenRemote poprosiło nas o podłączenie nietypowego urządzenia IoT do ich platformy. Rozwinęliśmy lokalizator GPS wykorzystujący technologię LoRa do komunikacji. Sieć mesh lokalizatora przesyła dane o lokalizacji przez urządzenie brzegowe do opartej na chmurze platformy OpenRemote. Sieć mesh oparta na LoRa umożliwia dalekosiężną łączność i niskie zużycie baterii urządzeń.",
+    "buttons": [
+      {
+        "title": "Zobacz kod źródłowy",
+        "path": "https://github.com/openremote/or-loratrackers"
+      },
+      {
+        "title": "Zobacz demo",
+        "path": "https://www.youtube.com/watch?v=72r54r_dwo8"
+      }
+    ],
+    "tags": ["#LoRa", "#IoT", "#OpenRemote", "#GPS", "#MeshNetwork"],
+    "locale": "pl"
+  }
+}

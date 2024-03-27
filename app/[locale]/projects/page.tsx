@@ -42,16 +42,16 @@ export default async function Projects({
 
       <div className={"max-wpt-4 maxw95vw flex flex-col justify-center gap-4"}>
         {projects.map((project) => (
-          <Card key={project.slug}>
+          <Card key={project.id}>
             <CardHeader>
               <CardTitle className="flex flex-col  gap-2">
-                {project.title}
-                <Badges badges={project.badges ?? []} key={project.slug} />
+                {project.data.title}
+                <Badges badges={project.data.badges ?? []} key={project.id} />
               </CardTitle>
-              <CardDescription>{project.description}</CardDescription>
+              <CardDescription>{project.data.description}</CardDescription>
             </CardHeader>
             <CardFooter className="flex flex-wrap gap-1">
-              {project.buttons.map((button) => {
+              {project.data.buttons.map((button) => {
                 return (
                   <LinkButton
                     href={button.path}

@@ -41,7 +41,7 @@ export async function generateStaticParams() {
   for (const locale of locales) {
     const posts = await new PostRepository().getAll(locale);
     const paths = posts.map((post) => ({
-      slug: post.slug,
+      slug: post.id,
       locale,
     }));
 
@@ -67,15 +67,18 @@ export default async function Index({
   return (
     <div className={"maxw100vw flex flex-col items-center justify-center p-2"}>
       <H1>{post.title}</H1>
-      <div className="wrapper" style={{ paddingTop: "2rem" }}>
-        {/* @ts-ignore */}
-        <MDXRemote
-          key={"aa"}
-          options={{ mdxOptions: { rehypePlugins: [rehypeHighlight] } }}
-          source={post.content}
-          components={components}
-        />
-      </div>
+
+      {post.content && (
+        <div className="wrapper" style={{ paddingTop: "2rem" }}>
+          {/* @ts-ignore */}
+          <MDXRemote
+            key={"aa"}
+            options={{ mdxOptions: { rehypePlugins: [rehypeHighlight] } }}
+            source={post.content}
+            components={components}
+          />
+        </div>
+      )}
     </div>
   );
 }

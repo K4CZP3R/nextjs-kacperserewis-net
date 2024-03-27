@@ -1,0 +1,80 @@
+{
+  "en": {
+    "title": "Reverse engineering of smart plug (TP-Link Tapo)",
+    "slug": "tapo",
+    "description": "I have successfully reverse-engineered the protocol used for communication between the Tapo app and the smart plug. My research and its implementations can be found on GitHub, such as in the Fishbigger's TapoP100 repository.",
+    "buttons": [
+      {
+        "title": "View Source #1",
+        "path": "https://github.com/k4czp3r/tapo-p100-python"
+      },
+      {
+        "title": "View Source #2",
+        "path": "https://github.com/k4czp3r/tapo-p100-java-poc"
+      },
+      {
+        "title": "Writeup",
+        "path": "/blog/post/reverse-engineering-tp-link-tapo"
+      }
+    ],
+    "tags": [
+      "#Python",
+      "#ReverseEngineering",
+      "#SmartPlug",
+      "#TP-Link",
+      "#Tapo"
+    ]
+  },
+  "nl": {
+    "title": "Reverse engineering van slimme stekker (TP-Link Tapo)",
+    "slug": "tapo",
+    "description": "Ik heb met succes het protocol dat gebruikt wordt voor communicatie tussen de Tapo-app en de slimme stekker reverse-engineered. Mijn onderzoek en de implementaties ervan zijn te vinden op GitHub, zoals in de TapoP100-repository van Fishbigger.",
+    "buttons": [
+      {
+        "title": "Bekijk Broncode #1",
+        "path": "https://github.com/k4czp3r/tapo-p100-python"
+      },
+      {
+        "title": "Bekijk Broncode #2",
+        "path": "https://github.com/k4czp3r/tapo-p100-java-poc"
+      },
+      {
+        "title": "Lees het Verslag",
+        "path": "/blog/post/reverse-engineering-tp-link-tapo"
+      }
+    ],
+    "tags": [
+      "#Python",
+      "#ReverseEngineering",
+      "#SlimmeStekker",
+      "#TP-Link",
+      "#Tapo"
+    ]
+  },
+  "pl": {
+    "title": "Inżynieria wsteczna inteligentnego gniazdka (TP-Link Tapo)",
+    "slug": "tapo",
+    "description": "Odniosłem sukces w inżynierii wstecznej protokołu używanego do komunikacji między aplikacją Tapo a inteligentnym gniazdkiem. Moje badania i ich implementacje można znaleźć na GitHubie, na przykład w repozytorium Fishbigger's TapoP100.",
+    "buttons": [
+      {
+        "title": "Zobacz kod źródłowy #1",
+        "path": "https://github.com/k4czp3r/tapo-p100-python"
+      },
+      {
+        "title": "Zobacz kod źródłowy #2",
+        "path": "https://github.com/k4czp3r/tapo-p100-java-poc"
+      },
+      {
+        "title": "Opis",
+        "path": "/blog/post/reverse-engineering-tp-link-tapo"
+      }
+    ],
+    "tags": [
+      "#Python",
+      "#InżynieriaWsteczna",
+      "#InteligentneGniazdko",
+      "#TP-Link",
+      "#Tapo"
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "en": {
+    "title": "HyperX keyboard USB protocol implementation",
+    "slug": "hyperx",
+    "description": "I have developed a proof-of-concept that allows for full control of the LEDs on a HyperX keyboard. This proof-of-concept was utilized to add support for this keyboard in the OpenRGB app.",
+    "buttons": [
+      {
+        "title": "View Source",
+        "path": "https://github.com/k4czp3r/hyperx-keyboard-rgb"
+      }
+    ],
+    "tags": ["#C++", "#USB", "#HyperX", "#OpenRGB"]
+  },
+  "nl": {
+    "title": "HyperX toetsenbord USB-protocol implementatie",
+    "slug": "hyperx",
+    "description": "Ik heb een proof-of-concept ontwikkeld dat volledige controle over de LED's op een HyperX toetsenbord mogelijk maakt. Dit proof-of-concept is gebruikt om ondersteuning voor dit toetsenbord toe te voegen aan de OpenRGB-app.",
+    "buttons": [
+      {
+        "title": "Bekijk Broncode",
+        "path": "https://github.com/k4czp3r/hyperx-keyboard-rgb"
+      }
+    ],
+    "tags": ["#C++", "#USB", "#HyperX", "#OpenRGB"]
+  },
+  "pl": {
+    "title": "Implementacja protokołu USB klawiatury HyperX",
+    "slug": "hyperx",
+    "description": "Rozwinąłem koncepcję, która pozwala na pełną kontrolę nad diodami LED na klawiaturze HyperX. Ta koncepcja została wykorzystana do dodania wsparcia dla tej klawiatury w aplikacji OpenRGB.",
+    "buttons": [
+      {
+        "title": "Zobacz kod źródłowy",
+        "path": "https://github.com/k4czp3r/hyperx-keyboard-rgb"
+      }
+    ],
+    "tags": ["#C++", "#USB", "#HyperX", "#OpenRGB"]
+  }
+}

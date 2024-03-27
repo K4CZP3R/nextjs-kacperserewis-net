@@ -3,5 +3,4 @@ export interface IPage {
   title: string;
   subtitle: string;
   extraContent: string;
-  locale: string;
 }

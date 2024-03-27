@@ -1,0 +1,44 @@
+{
+  "en": {
+    "title": "LoveBox - ploveu",
+    "slug": "lovebox",
+    "description": "I recently created a special project called \"PLU-box\" as a gift for my girlfriend on our 5th anniversary. It's a device that allows us to send and receive heartfelt messages from each other, no matter how far apart we are.",
+    "buttons": [],
+    "tags": [
+      "#TypeScript",
+      "#Linux",
+      "#Docker",
+      "#MongoDB",
+      "#Lit",
+      "#WebComponents"
+    ]
+  },
+  "nl": {
+    "title": "LoveBox - ploveu",
+    "slug": "lovebox",
+    "description": "Ik heb onlangs een speciaal project genaamd \"PLU-box\" gemaakt als cadeau voor mijn vriendin op onze 5e verjaardag. Het is een apparaat waarmee we hartverwarmende berichten naar elkaar kunnen sturen en ontvangen, hoe ver we ook uit elkaar zijn.",
+    "buttons": [],
+    "tags": [
+      "#TypeScript",
+      "#Linux",
+      "#Docker",
+      "#MongoDB",
+      "#Lit",
+      "#WebComponents"
+    ]
+  },
+  "pl": {
+    "title": "LoveBox - ploveu",
+    "slug": "lovebox",
+    "description": "Ostatnio stworzyłem specjalny projekt o nazwie \"PLU-box\" jako prezent dla mojej dziewczyny na naszą 5. rocznicę. To urządzenie, które pozwala nam wysyłać i odbierać serdeczne wiadomości do siebie, bez względu na to, jak daleko jesteśmy od siebie.",
+    "buttons": [],
+    "tags": [
+      "#TypeScript",
+      "#Linux",
+      "#Docker",
+      "#MongoDB",
+      "#Lit",
+      "#WebComponents"
+    ]
+  }
+}

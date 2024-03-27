@@ -75,8 +75,8 @@ export default async function Index({
 
         <div className={"flex flex-wrap gap-2 pt-2.5"}>
           {socials.map((social) => (
-            <LinkButton href={social.url} key={social.id} size={"icon"}>
-              <RenderWIicon text={social.name} />
+            <LinkButton href={social.data.url} key={social.id} size={"icon"}>
+              <RenderWIicon text={social.data.name} />
             </LinkButton>
           ))}
 

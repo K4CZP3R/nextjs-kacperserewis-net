@@ -1,0 +1,40 @@
+{
+  "en": {
+    "title": "P2PLauncher",
+    "slug": "p2plauncher",
+    "description": "P2PLauncher is a program that helps connect multiple peers in a simulated LAN environment using FreeLAN, an open-source, peer-to-peer VPN. It has a user-friendly interface and is mainly intended for gamers. P2PLauncher enables users to play old games with LAN connectivity, even if the game's servers are no longer supported or have networking issues with their current systems.",
+    "buttons": [
+      {
+        "title": "View Source",
+        "path": "https://github.com/k4czp3r/p2plauncher"
+      }
+    ],
+    "tags": ["#csharp", "#P2P", "#LAN", "#Freelan"]
+  },
+  "nl": {
+    "title": "P2PLauncher",
+    "slug": "p2plauncher",
+    "description": "P2PLauncher is een programma dat helpt bij het verbinden van meerdere peers in een gesimuleerde LAN-omgeving met behulp van FreeLAN, een open-source, peer-to-peer VPN. Het heeft een gebruiksvriendelijke interface en is voornamelijk bedoeld voor gamers. P2PLauncher stelt gebruikers in staat om oude spellen met LAN-connectiviteit te spelen, zelfs als de servers van het spel niet meer worden ondersteund of als er netwerkproblemen zijn met hun huidige systemen.",
+    "buttons": [
+      {
+        "title": "Bekijk Broncode",
+        "path": "https://github.com/k4czp3r/p2plauncher"
+      }
+    ],
+    "tags": ["#csharp", "#P2P", "#LAN", "#Freelan"],
+    "locale": "nl"
+  },
+  "pl": {
+    "title": "P2PLauncher",
+    "slug": "p2plauncher",
+    "description": "P2PLauncher to program, który pomaga połączyć wielu użytkowników w symulowanym środowisku LAN za pomocą FreeLAN, otwartoźródłowego VPN typu peer-to-peer. Ma przyjazny interfejs i jest głównie przeznaczony dla graczy. P2PLauncher umożliwia użytkownikom grę w stare gry z łącznością LAN, nawet jeśli serwery gry nie są już obsługiwane lub mają problemy z siecią w ich obecnych systemach.",
+    "buttons": [
+      {
+        "title": "Zobacz kod źródłowy",
+        "path": "https://github.com/k4czp3r/p2plauncher"
+      }
+    ],
+    "tags": ["#csharp", "#P2P", "#LAN", "#Freelan"],
+    "locale": "pl"
+  }
+}

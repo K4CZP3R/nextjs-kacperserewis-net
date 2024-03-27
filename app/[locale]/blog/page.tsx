@@ -40,17 +40,14 @@ export default async function Blog({
       <div className={"maxw95vw flex flex-col justify-center gap-4 pt-4"}>
         {posts.map((post) => {
           return (
-            <Card key={post.slug}>
+            <Card key={post.id}>
               <CardHeader>
-                <CardTitle>{post.title}</CardTitle>
-                <CardDescription>{post.description}</CardDescription>
+                <CardTitle>{post.data.title}</CardTitle>
+                <CardDescription>{post.data.description}</CardDescription>
               </CardHeader>
               <CardFooter className="flex justify-between">
                 {" "}
-                <LinkButton
-                  href={`/blog/post/${post.slug}`}
-                  variant={"outline"}
-                >
+                <LinkButton href={`/blog/post/${post.id}`} variant={"outline"}>
                   Read
                 </LinkButton>
               </CardFooter>

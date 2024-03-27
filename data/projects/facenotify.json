@@ -1,0 +1,80 @@
+{
+  "en": {
+    "title": "FaceNotify / TrustNotify",
+    "slug": "facenotify",
+    "description": "I've developed an app that allows notifications to be displayed on the lock screen only when the device owner is looking at it. The first version was written in Java, while the second, more optimized version was written in Kotlin.",
+    "buttons": [
+      {
+        "title": "View Source #1",
+        "path": "https://github.com/k4czp3r/FaceNotify"
+      },
+      {
+        "title": "View Source #2",
+        "path": "https://github.com/k4czp3r/TrustNotify"
+      },
+      {
+        "title": "View Demo",
+        "path": "https://youtu.be/Gz_cFyi5riw?t=67"
+      }
+    ],
+    "tags": [
+      "#Android",
+      "#Java",
+      "#Kotlin",
+      "#FaceRecognition",
+      "#Notification"
+    ]
+  },
+  "nl": {
+    "title": "FaceNotify / TrustNotify",
+    "slug": "facenotify",
+    "description": "Ik heb een app ontwikkeld die notificaties op het vergrendelscherm toont alleen wanneer de eigenaar van het apparaat ernaar kijkt. De eerste versie was geschreven in Java, terwijl de tweede, meer geoptimaliseerde versie in Kotlin was geschreven.",
+    "buttons": [
+      {
+        "title": "Bekijk Broncode #1",
+        "path": "https://github.com/k4czp3r/FaceNotify"
+      },
+      {
+        "title": "Bekijk Broncode #2",
+        "path": "https://github.com/k4czp3r/TrustNotify"
+      },
+      {
+        "title": "Bekijk Demo",
+        "path": "https://youtu.be/Gz_cFyi5riw?t=67"
+      }
+    ],
+    "tags": [
+      "#Android",
+      "#Java",
+      "#Kotlin",
+      "#Gezichtsherkenning",
+      "#Notificatie"
+    ]
+  },
+  "pl": {
+    "title": "FaceNotify / TrustNotify",
+    "slug": "facenotify",
+    "description": "Rozwinąłem aplikację, która pozwala wyświetlać powiadomienia na ekranie blokady tylko wtedy, gdy właściciel urządzenia na niego patrzy. Pierwsza wersja została napisana w Javie, podczas gdy druga, bardziej zoptymalizowana wersja została napisana w Kotlinie.",
+    "buttons": [
+      {
+        "title": "Zobacz kod źródłowy #1",
+        "path": "https://github.com/k4czp3r/FaceNotify"
+      },
+      {
+        "title": "Zobacz kod źródłowy #2",
+        "path": "https://github.com/k4czp3r/TrustNotify"
+      },
+      {
+        "title": "Zobacz demo",
+        "path": "https://youtu.be/Gz_cFyi5riw?t=67"
+      }
+    ],
+    "tags": [
+      "#Android",
+      "#Java",
+      "#Kotlin",
+      "#RozpoznawanieTwarzy",
+      "#Powiadomienia"
+    ]
+  }
+}

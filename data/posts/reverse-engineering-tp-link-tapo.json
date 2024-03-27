@@ -1,0 +1,29 @@
+{
+  "en": {
+    "title": "Reverse Engineering TP-Link TAPO",
+    "tags": ["#Python", "#Smart Home", "#IoT", "#TP-Link", "#Tapo", "#Java"],
+    "description": "I reverse-engineered a smart plug, TP-Link Tapo. This is my writeup on my work.",
+    "images": null,
+    "createdAt": "2020-10-16T00:00:00.000Z",
+    "updatedAt": "2023-01-08T14:49:31.232Z",
+    "contentFile": "tapo-en.md"
+  },
+  "pl": {
+    "title": "Reverse Engineering TP-Link TAPO",
+    "description": "Zreversowałem smart plug, TP-Link Tapo. Oto moje opracowanie opisujące moją pracę.",
+    "tags": ["#Python", "#Smart Home", "#IoT", "#TP-Link", "#Tapo", "#Java"],
+    "images": null,
+    "createdAt": "2020-10-16T00:00:00.000Z",
+    "updatedAt": "2023-01-08T14:49:31.232Z",
+    "contentFile": "tapo-pl.md"
+  },
+  "nl": {
+    "title": "Reverse Engineering TP-Link TAPO",
+    "description": "Ik heb een smart plug, TP-Link Tapo, gereverse-engineerd. Dit is mijn writeup waarin ik mijn werk beschrijf.",
+    "tags": ["#Python", "#Smart Home", "#IoT", "#TP-Link", "#Tapo", "#Java"],
+    "images": null,
+    "createdAt": "2020-10-16T00:00:00.000Z",
+    "updatedAt": "2023-01-08T14:49:31.232Z",
+    "contentFile": "tapo-nl.md"
+  }
+}
